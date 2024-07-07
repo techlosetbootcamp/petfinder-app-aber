@@ -22,7 +22,7 @@ const fetchToken = async () => {
   }
 };
 
-const axiosInstance = axios.create({
+export const axiosInstance = axios.create({
   baseURL: "https://api.petfinder.com/v2",
   timeout: 20000,
   headers: {
@@ -31,7 +31,7 @@ const axiosInstance = axios.create({
   },
 });
 
-const addAuthorizationHeader = async () => {
+export const addAuthorizationHeader = async () => {
   const accessToken = await fetchToken();
   if (accessToken) {
     axiosInstance.defaults.headers.common[
@@ -40,4 +40,4 @@ const addAuthorizationHeader = async () => {
   }
 };
 
-export { axiosInstance, addAuthorizationHeader };
+
