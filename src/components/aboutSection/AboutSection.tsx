@@ -6,39 +6,38 @@ import img4 from "../../assets/contact.svg";
 import Button from "../../commonComponents/button/Button";
 import { usePetDetailContext } from "../../pages/petDetail/PetDetail";
 
-//Adjust Button
 
 const AboutSection = () => {
   const obj = usePetDetailContext();
   return (
     <div className=" h-fit xs:bg-gray-200 lg:bg-white">
       <div className="bg-gray-200 h-48 pt-6 " />
-      {/* </div> */}
+   
 
       <div className="flex xs:items-center lg:items-start lg:justify-between lg:px-[110px] gap-[20px] lg:flex-row xs:flex-col -mt-40 ">
         {/* DESKTOP SECTION */}
         <section className="bg-white w-[806px] h-[504px] p-6 rounded-[10px] shadow-md lg:block xs:hidden">
-          <p className="text-black text-[40px]">{obj?.pet?.animal?.name}</p>
+          <p className="text-black text-[40px]">{obj?.pet?.name}</p>
 
           <div className="flex gap-2">
-            <p className="text-primary text-[16px] underline">{obj?.pet?.animal?.breeds?.primary}</p>
+            <p className="text-primary text-[16px] underline">{obj?.pet?.breeds?.primary}</p>
             <p className="text-black text-[14px]">•</p>
-            <p className="text-black text-[16px]">{obj?.pet?.animal?.contact?.address?.city}, {obj?.pet?.animal?.contact?.address?.state}</p>
+            <p className="text-black text-[16px]">{obj?.pet?.contact?.address?.city}, {obj?.pet?.contact?.address?.state}</p>
           </div>
 
           <div className="flex gap-2 border-t border-b py-4 my-8">
-            <p className="text-black text-[16px]">{obj?.pet?.animal?.age}</p>
+            <p className="text-black text-[16px]">{obj?.pet?.age}</p>
             <p className="text-black text-[14px]">•</p>
-            <p className="text-black text-[16px]">{obj?.pet?.animal?.gender}</p>
+            <p className="text-black text-[16px]">{obj?.pet?.gender}</p>
             <p className="text-black text-[14px]">•</p>
-            <p className="text-black text-[16px]">{obj?.pet?.animal?.size}</p>
+            <p className="text-black text-[16px]">{obj?.pet?.size}</p>
           </div>
 
           <div className="border-b pb-16">
             <p className="text-black text-[30px] leading-[36px]">About</p>
-            <p className="text-black text-[16px] leading-[25.6px]">{obj?.pet?.animal?.description}</p>
+            <p className="text-black text-[16px] leading-[25.6px]">{obj?.pet?.description}</p>
             <p className="text-black text-[14px] leading-[22.4px] uppercase italic underline">
-            {obj?.pet?.animal?.status}
+            {obj?.pet?.status}
             </p>
           </div>
 
@@ -54,32 +53,32 @@ const AboutSection = () => {
         {/* MOBILE SECTION */}
         <section className="w-full lg:hidden flex flex-col gap-4 ">
           <div className="bg-white h-[184px] border-2 w-full py-[26px] px-[15px] text-center flex flex-col justify-between">
-            <p className="text-black text-[30px] leading-[36px]">{obj?.pet?.animal?.name}</p>
+            <p className="text-black text-[30px] leading-[36px]">{obj?.pet?.name}</p>
 
             <div className="flex gap-2 justify-center">
               <p className="text-primary text-[14px] leading-[22.2px] underline">
-              {obj?.pet?.animal?.breeds?.primary}
+              {obj?.pet?.breeds?.primary}
               </p>
               <p className="text-black text-[14px] leading-[22.2px] ">•</p>
               <p className="text-black text-[14px] leading-[22.2px] ">
-              {obj?.pet?.animal?.contact?.address?.city}, {obj?.pet?.animal?.contact?.address?.state}
+              {obj?.pet?.contact?.address?.city}, {obj?.pet?.contact?.address?.state}
               </p>
             </div>
 
             <div className="flex gap-2 justify-center">
-              <p className="text-black text-[16px]">{obj?.pet?.animal?.age}</p>
+              <p className="text-black text-[16px]">{obj?.pet?.age}</p>
               <p className="text-black text-[14px]">•</p>
-              <p className="text-black text-[16px]">{obj?.pet?.animal?.gender}</p>
+              <p className="text-black text-[16px]">{obj?.pet?.gender}</p>
               <p className="text-black text-[14px]">•</p>
-              <p className="text-black text-[16px]">{obj?.pet?.animal?.size}</p>
+              <p className="text-black text-[16px]">{obj?.pet?.size}</p>
             </div>
           </div>
 
           <div className="h-[185px] bg-white px-[15px] pt-[26px]">
             <p className="text-black text-[30px] leading-[36px] pb-[17px]">About</p>
-            <p className="text-black text-[16px] leading-[25.6px]">{obj?.pet?.animal?.description}</p>
+            <p className="text-black text-[16px] leading-[25.6px]">{obj?.pet?.description}</p>
             <p className="text-black text-[14px] leading-[22.4px] uppercase italic underline">
-            {obj?.pet?.animal?.status}
+            {obj?.pet?.status}
             </p>
           </div>
 
@@ -96,7 +95,7 @@ const AboutSection = () => {
             <div className="xs:px-[10px]">
           <div className="bg-primary min-w-[300px] max-w-[393px] h-[283px] rounded-[10px] pt-5 flex flex-col justify-between space-around items-center mx-auto">
             <p className="text-[20] text-white">
-              Considering {obj?.pet?.animal?.name} for adoption?
+              Considering {obj?.pet?.name} for adoption?
             </p>
 
             <div className="w-[80%] flex flex-col  gap-[15px] ">
@@ -141,10 +140,10 @@ const AboutSection = () => {
           <div className="relative bg-white xs:w-full lg:w-[393px] h-[401px] shadow-lg  lg:rounded-[10px] my-[96px]  px-[20px] ">
             <div className="text-center pt-[69px] pb-[33px]">
               <p className="xs:text-[27px] lg:text-[30px] leading-[36px] text-black">
-              {obj?.pet?.animal?.contact?.address?.state} Animals In Need
+              {obj?.pet?.contact?.address?.state} Animals In Need
               </p>
               <p className="text-[14px] leading-[22.4px] text-black">
-              {obj?.pet?.animal?.contact?.address?.city}, {obj?.pet?.animal?.contact?.address?.state}
+              {obj?.pet?.contact?.address?.city}, {obj?.pet?.contact?.address?.state}
               </p>
             </div>
 
@@ -161,7 +160,7 @@ const AboutSection = () => {
                   Location Address
                 </p>
                 <p className="text-[14px] leading-[22.4px] text-black">
-                {obj?.pet?.animal?.contact?.address?.city}, {obj?.pet?.animal?.contact?.address?.state}
+                {obj?.pet?.contact?.address?.city}, {obj?.pet?.contact?.address?.state}
                 </p>
               </div>
             </div>
@@ -169,7 +168,7 @@ const AboutSection = () => {
             <div className="border-t border-b py-[17px] flex">
               <img src={img4} alt="" className="mr-[17px] h-[22px] w-[22px]" />
               <p className="text-[14px] leading-[22.4px] text-primary">
-              {obj?.pet?.animal?.contact?.phone}
+              {obj?.pet?.contact?.phone}
               </p>
             </div>
 

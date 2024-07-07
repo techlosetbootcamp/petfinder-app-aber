@@ -2,87 +2,19 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
   addAuthorizationHeader,
   axiosInstance,
-} from "../../constants/petfinderapi";
+} from "../../constants/PetFinderApi";
 
+import { FetchLimitedPetsByTypesArgs, FetchPetsByTypesArgs, FetchSinglePetsByTypesArgs, PetState, PetsResponse, SinglePetResponse } from "../../@types/types";
 
-type Animal = {
-  status: string;
-  contact: {
-    email?: string;
-    phone?: string;
-    address?: {
-      city?: string;
-      state?: string;
-      postcode?: string;
-      country?: string;
-    };
-  };
-  type: string;
-  breeds: {
-    primary: string;
-    secondary?: string;
-    mixed?: boolean;
-    unknown?: boolean;
-  };
-  name: string;
-  species: string;
-  id: number;
-  photos: Array<{
-    small?: string;
-    medium?: string;
-    large?: string;
-    full?: string;
-  }>;
-};
-
-
-type Pagination = {
-  total_pages: number ;
-  current_page: number;
-};
-
-
-type PetsResponse = {
-  animals: Animal[];
-  pagination: Pagination;
-};
-
-type PetState = {
- 
-  singlePet : Animal[];
-  limitedPets : PetsResponse | null;
-  data: PetsResponse | null; // Array of Animal objects
-  totalPages: number;
-  loading: boolean;
-  error: string | null;
-
-};
 
 const initialState: PetState = {
   limitedPets : null,
-  singlePet : [],
+  singlePet : null,
   data: null,
   totalPages: 0,
   loading: false,
   error: null,
 
-};
-
-
-
-type FetchPetsByTypesArgs = {
-  slug: string;
-  page: number;
-  setResponse: {};
-  setTotalPages: {};
-};
-
-type FetchSinglePetsByTypesArgs = {
-  petId: string;
-};
-
-type FetchLimitedPetsByTypesArgs = {
-  page: string;
 };
 
 
@@ -99,12 +31,12 @@ export const getPetsByTypes = createAsyncThunk<
 
     return response?.data;
   } catch (error) {
-    console.log(error);
+    console.log("Error fro here",error);
   }
 });
 
 export const getPetById = createAsyncThunk<
-Animal[],
+SinglePetResponse,
   FetchSinglePetsByTypesArgs,
   { rejectValue: string }
 >("pets/fetchById", async (petId) => {
@@ -120,10 +52,10 @@ Animal[],
 export const getLimitedPets = createAsyncThunk<
 PetsResponse, FetchLimitedPetsByTypesArgs,
   { rejectValue: string }
->("pets/fetchByLimit", async (page) => {
+>("pets/fetchByLimit", async ({pageNumber, limit}, rejectWithValue) => {
   try {
     await addAuthorizationHeader();
-    const response = await axiosInstance.get(`/animals?limit=5&status=adoptable&page=${page}`);
+    const response = await axiosInstance.get(`/animals?limit=${limit}&status=adoptable&page=${pageNumber}`);
     return response?.data;
   } catch (error) {
     console.log(error);
@@ -165,13 +97,13 @@ const petSlice = createSlice({
     });
     builder.addCase(
       getPetById.fulfilled,
-      (state, action: PayloadAction<Animal[]>) => {
+      (state, action: PayloadAction<SinglePetResponse>) => {
         state.singlePet = action.payload;
         state.loading = false;
       }
     );
     builder.addCase(getPetById.rejected, (state, payload) => {
-      state.singlePet = [];
+      state.singlePet = null;
       state.loading = false;
     });
 

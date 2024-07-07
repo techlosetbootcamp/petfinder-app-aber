@@ -12,29 +12,17 @@ import { usePet } from "../../hooks/usePet";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { ImSpinner9 } from "react-icons/im";
+import { PetDetailType } from "../../@types/types";
 
-type Photo = {
-  small: string;
-  medium?: string;
-  large?: string;
-  full?: string;
-};
 
-type Animal = {
-  photos?: Photo[];
-  [a:string] : any
-  
-};
 
-type PetDetailType = {
-  pet: Animal | undefined | null;
-} | null;
 
 const PetDetailContext = createContext<PetDetailType | null>(null);
 
 const PetDetail = () => {
   const params = useParams();
-  const pet= useSelector((state: RootState) => state?.pets?.singlePet);
+  const pet= useSelector((state: RootState) => state?.pets?.singlePet?.animal);
+  console.log("oet in petDetail", pet)
   
 
   const { petId } = params;
@@ -45,7 +33,7 @@ const PetDetail = () => {
     animal, 
     setAnimal, 
     loading, 
-    } = usePet("",petId,"");
+    } = usePet("",petId);
 
   useEffect(() => {
     fetchSinglePet(petId);
@@ -76,7 +64,7 @@ const PetDetail = () => {
       <AboutSection />
       <PetInquirySection />
       <AdoptionStories />
-      <PetSection pageNumber={26} heading={"Related Animals"}/>
+      {/* <PetSection pageNumber={26} heading={"More Animals"}/> */}
       </>
       }
     </PetDetailContext.Provider>

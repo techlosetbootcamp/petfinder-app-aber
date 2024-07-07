@@ -8,7 +8,7 @@ import {
 } from "../redux/slices/pet.slice";
 import { AppDispatch } from "../redux/store";
 
-export const usePet = (slug, petId, pageNumber) => {
+export const usePet = (slug, petId) => {
   const dispatch: AppDispatch = useDispatch();
 
   const [response, setResponse] = useState<[]>();
@@ -62,9 +62,9 @@ export const usePet = (slug, petId, pageNumber) => {
       });
   };
 
-  const fetchLimitedPets = () => {
+  const fetchLimitedPets = (pageNumber, limit) => {
     setLoading(true);
-    dispatch(getLimitedPets(pageNumber))
+    dispatch(getLimitedPets({pageNumber, limit}))
       .then(() => {
         setLoading(false);
       })
@@ -73,10 +73,10 @@ export const usePet = (slug, petId, pageNumber) => {
       });
   };
 
-  useEffect(() => {
+  // useEffect(() => {
   
-    fetchAnimals();
-  }, [slug, page]);
+  //   fetchAnimals();
+  // }, [slug, page]);
   return {
     fetchAnimals,
     fetchSinglePet,

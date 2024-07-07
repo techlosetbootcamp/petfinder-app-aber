@@ -1,16 +1,10 @@
 import React from 'react'
 import Button from '../button/Button'
-
-interface CardProps {
-  btnText:string,
-  heading:string,
-  text:string,
-  img:string
-
-}
+import { CardProps3 } from '../../@types/types'
 
 
-const Card3 = ({btnText,heading,text, img} : CardProps) => {
+
+const Card3 = ({btnText,heading,text, img} : CardProps3) => {
   return (
     <div>
       <div className='xs:w-auto lg:w-96 p-4 grid rounded-md bg-white box-border'>

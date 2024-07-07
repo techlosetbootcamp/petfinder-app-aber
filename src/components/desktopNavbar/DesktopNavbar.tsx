@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { links } from "../../constants/navLinks";
+import { links } from "../../constants/NavLinks";
 
 
 const DesktopNavbar = () => {

@@ -1,18 +1,9 @@
 import React from 'react'
 import img2 from "../../assets/heart.svg"
 import { Link } from 'react-router-dom'
+import { CardProps2 } from '../../@types/types'
 
-interface CardProps {
-    text: string,
-    img: string,
-    path: string,
-    shadow : string,
-    location:string | undefined,
-    breed: string
-  }
-  
-
-const Card2 = ({text, img, path, shadow, location,breed}: CardProps) => {
+const Card2 = ({text, img, path, shadow, location,breed}: CardProps2) => {
     const shadowConstraints = {
         "shadow" : "shadow-sm"
     }

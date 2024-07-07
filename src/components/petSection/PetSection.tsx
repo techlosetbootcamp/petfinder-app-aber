@@ -1,23 +1,61 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Card2 from "../../commonComponents/card2/Card2";
 import img from "../../assets/petCommon.png";
+import img2 from "../../assets/icon1.svg"
 import { usePet } from "../../hooks/usePet";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 
 import { ImSpinner9 } from "react-icons/im";
 
+
+
+
+
 const PetSection = ({ pageNumber, heading }) => {
-  const { fetchLimitedPets, loading } = usePet("", "", pageNumber);
+ 
+   const [limit, setLimit] = useState<number>();
+   const updateLimit = () => {
+     const width = window.innerWidth;
+     let newLimit:number;
+ 
+     if (width < 768) { 
+       newLimit = 1;
+     } else if (width < 1024) { 
+       newLimit = 2;
+     } else if (width < 1280) {
+       newLimit = 3;
+     } else {                   
+       newLimit = 4;
+     }
+ 
+     if (newLimit !== limit) {
+      setLimit(newLimit);
+    }
+   };
+
+   useEffect(() => {
+     updateLimit(); 
+ 
+     window.addEventListener('resize', updateLimit);
+ 
+     return () => {
+       window.removeEventListener('resize', updateLimit);
+     };
+   }, [limit]);
+ 
+  const { fetchLimitedPets, loading } = usePet("", "");
   const pets = useSelector(
     (state: RootState) => state?.pets?.limitedPets?.animals
   );
 
 
   useEffect(()=>{
-    fetchLimitedPets()
+    fetchLimitedPets(pageNumber,limit)
 
-  },[pageNumber])
+  },[pageNumber, limit])
+
+ 
 
 
   return (
@@ -40,7 +78,7 @@ const PetSection = ({ pageNumber, heading }) => {
         )
         :
 
-      <div className="flex flex-wrap gap-[16px] justify-center">
+      <div className="grid xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-rows-1 gap-[16px] justify-center place-items-center mx-auto overflow-hidden">
         {pets?.map((item) => {
           if (item?.status === "adoptable") {
             return (
@@ -52,10 +90,30 @@ const PetSection = ({ pageNumber, heading }) => {
                 img={item?.photos?.[0]?.small ? item?.photos?.[0]?.small : img}
                 text={item.name}
                 path={`/petDetail/${item?.id}`}
+              
               />
             );
           }
         })}
+
+        <div className="bg-[#6504B5] xs:w-[131px] rounded-[10px] sm:w-56 flex flex-col h-full items-center justify-between">
+
+          <div className=" flex flex-col self-center items-center justify-center xs:h-32 sm:h-56 gap-[20px] w-full py-[5px]">
+
+          <img src={img2} alt="" className=""/>
+          <p className="xs:text-[8px] sm:text-[14px] leading-[19.6px] text-white">10137 more pets available on Petfinder</p>
+          </div>
+          
+          <div className="h-[56px] border-t border-[#2E0152] w-full flex items-center justify-center">
+
+          <p className="text-[14px] leading-[19.6px] text-white uppercase ">Meet them</p>
+          </div>
+
+          
+
+        </div>
+
+       
       
       </div>
       }

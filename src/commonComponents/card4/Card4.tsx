@@ -1,15 +1,8 @@
 import React from 'react'
 
+import { CardProps4 } from '../../@types/types'
 
-interface CardProps{
-    text: string,
-    btnText: string,
-    size: string,
-    heading:string,
-    img:string
-}
-
-const Card4 = ({text, btnText, size, heading,img} : CardProps) => {
+const Card4 = ({text, btnText, size, heading,img} : CardProps4) => {
     const sizeConstraints = {
         large : "lg:w-[600px] xs:w-[300px] h-[515.39px]",
         medium : "w-[393px] h-[501px]"

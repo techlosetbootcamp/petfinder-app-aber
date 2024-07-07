@@ -1,16 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-type CardProps ={
-  text: string,
-  img: string,
-  path: string,
-  size : string,
-  onClick :()=>void
-}
+import { CardProps1 } from '../../@types/types'
 
-
-const Card = ({text, img, path, onClick, size} : CardProps) => {
+const Card = ({text, img, path, onClick, size} : CardProps1) => {
   const sizeConstraints = {
     "small" : "xs:w-[90px] sm:w-[131px]",
     "medium" : "xs:w-[131px] lg:w-[181px] "

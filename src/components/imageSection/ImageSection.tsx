@@ -13,14 +13,15 @@ const ImageSection = () => {
     "large" : "bottom-0 h-screen z-10 fixed overflow-hidden"
   }
   const obj = usePetDetailContext();
+  console.log("in image section", obj?.pet?.name)
 
   
   return (
     <div className={`bg-black w-full ${isLarge ? sizeConstraints["large"] : sizeConstraints["small"] }`}>
       <img 
       src={
-        obj?.pet?.animal?.photos?.[0]?.small
-          ? obj?.pet?.animal?.photos?.[0]?.small
+        obj?.pet?.photos?.[0]?.small
+          ? obj?.pet?.photos?.[0]?.small
           : img
       }
       

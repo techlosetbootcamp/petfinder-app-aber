@@ -10,7 +10,7 @@ const AdoptionStories = () => {
       <div className=" py-[58px] lg:px-[50px] px-[10px] text-white">
         <div className="text-center">
           <p className="xs:text-[30px] lg:text-[40px] xs:leading-[36px] lg:leading-[48px] py-[8px]">
-          {obj?.pet?.animal?.breeds?.primary} Happy Tails
+          {obj?.pet?.breeds?.primary} Happy Tails
           </p>
           <p className="text-[16px] leading-[19.2px] underline">
             View Pet Adoption Stories

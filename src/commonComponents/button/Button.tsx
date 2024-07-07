@@ -1,14 +1,7 @@
 import React from 'react'
+import { ButtonProps } from '../../@types/types'
 
-interface ButtonProps{
-  bgColor : string,
-  textColor: string,
-  text : string,
-  width:string,
-  radius:string,
-  border:string
 
-}
 
 const Button = ({bgColor, textColor,text, width, radius, border} : ButtonProps) => {
   const widthConstraints = {
