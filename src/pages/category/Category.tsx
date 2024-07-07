@@ -93,7 +93,7 @@ const Category = () => {
               })}
             </div>
           )}
-          {/* //pagination */}
+        
           {totalPage > 1 && !loading && (
             <div className="absolute w-full flex left-0 bottom-0 justify-center border-2 gap-4">
               <div onClick={prevPage}>
