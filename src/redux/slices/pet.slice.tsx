@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { FetchLimitedPetsByTypesArgs, FetchPetsByTypesArgs, FetchSinglePetsByTypesArgs, PetState, PetsResponse, SinglePetResponse } from "../../@types/types";
-import { addAuthorizationHeader, axiosInstance } from "../../constants/PetFinderApi";
+import { addAuthorizationHeader, axiosInstance } from "../../constants/petfinderapi";
+
 
 
 const initialState: PetState = {
