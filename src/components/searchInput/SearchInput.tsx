@@ -1,20 +1,11 @@
 import React, { useState } from 'react'
 import img from "../../assets/searchIcon.svg"
-import { useNavigate } from 'react-router-dom'
-
-
+import { useSearch } from '../../hooks/useSearch'
 
 
 const SearchInput = () => {
-  const navigate = useNavigate()
-  const [val, setVal] = useState<string | null>("")
-  
-  const findPet = () =>{
-   
-    navigate('/pets/find', {state : {searchInput : val}})
-
-  }
-
+  const {setVal, findPet} = useSearch()
+ 
   
   return (
     <div className='h-[60px] w-[808px] relative px-[20px]'>

@@ -1,28 +1,13 @@
-import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React from "react";
 
 import img from "../../assets/petCommon.png";
 import { ImSpinner9 } from "react-icons/im";
 import Card2 from "../../commonComponents/card2/Card2";
-import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
-import { usePet } from "../../hooks/usePet";
 import Button from "../../commonComponents/button/Button";
+import { usePet } from "../../hooks/usePet";
+import { useFindAnimals } from "../../hooks/useFindAnimals";
 
 const FindAnimals = () => {
-  const location = useLocation();
-
-  const searchInput = location.state.searchInput;
-  const search = searchInput.toLowerCase();
-  const query = new URLSearchParams(location.search);
-  const slug = query.get("slug");
-
-  const pets = useSelector((state: RootState) => state?.pets?.data?.animals);
-
-  const pagination = useSelector(
-    (state: RootState) => state?.pets?.data?.pagination?.total_pages
-  );
-
   const {
     fetchSearchedPets,
     prevPage,
@@ -31,14 +16,12 @@ const FindAnimals = () => {
     page,
     totalPages,
     loading,
-  } = usePet("", "");
+  } = usePet();
 
-  const totalPage = pagination ?? 0;
-
-  useEffect(() => {
-    setTotalPages(totalPage);
-    fetchSearchedPets();
-  }, [search]);
+  const { search, pets, totalPage } = useFindAnimals(
+    setTotalPages,
+    fetchSearchedPets
+  );
 
   return (
     <div className="bg-white w-full  min-h-96 py-[10px] relative">

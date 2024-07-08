@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React from "react";
 
 import { ImSpinner9 } from "react-icons/im";
 
@@ -7,30 +6,9 @@ import Card2 from "../../commonComponents/card2/Card2";
 import img from "../../assets/petCommon.png";
 import Button from "../../commonComponents/button/Button";
 import { usePet } from "../../hooks/usePet";
-import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
+import { useCategory } from "../../hooks/useCategory";
 
 const Category = () => {
-  const { search } = useLocation();
-  const params = new URLSearchParams(search);
-  const slug = params.get("slug");
-  let slugName: string | null;
-  if (slug === "scales-fins-other") {
-    slugName = "Scales, Fins & Other";
-  } else if (slug === "small-furry") {
-    slugName = "Small & Furry";
-  } else {
-    slugName = slug;
-  }
-
-  const pets = useSelector((state: RootState) => state?.pets?.data?.animals);
-
-  const pagination = useSelector(
-    (state: RootState) => state?.pets?.data?.pagination?.total_pages
-  );
-
-  console.log(pets);
-
   const {
     fetchAnimals,
     prevPage,
@@ -41,14 +19,13 @@ const Category = () => {
     page,
     totalPages,
     loading,
-  } = usePet(slug, "");
+  } = usePet();
 
-  const totalPage = pagination ?? 0;
-
-  useEffect(() => {
-    setTotalPages(totalPage);
-    fetchAnimals();
-  }, [slug, page]);
+  const { pets, pagination, slug, slugName, totalPage } = useCategory(
+    setTotalPages,
+    fetchAnimals,
+    page
+  );
 
   return (
     <>
@@ -93,7 +70,7 @@ const Category = () => {
               })}
             </div>
           )}
-        
+
           {totalPage > 1 && !loading && (
             <div className="absolute w-full flex left-0 bottom-0 justify-center border-2 gap-4">
               <div onClick={prevPage}>

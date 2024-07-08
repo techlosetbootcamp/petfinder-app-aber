@@ -11,9 +11,9 @@ const MainFooter = () => {
         </div>
 
         <div className="relative flex lg:gap-[15px] xl:gap-[38px]">
-          {footerLinks.map((links) => {
+          {footerLinks.map((links,i) => {
             return (
-              <div>
+              <div key={i}>
                 <h3 className="py-3 uppercase  text-[14px] ">{links.text}</h3>
                 {links.sublinks.map((sublinks) => {
                   return <p className="text-[13px]">{sublinks.text}</p>;
@@ -42,9 +42,9 @@ const MainFooter = () => {
           </div>
         </div>
         <div className="py-[18px] px-[89px] flex flex-wrap gap-[10px] justify-center text-[12px]">
-          {footerItems.map((item) => {
+          {footerItems.map((item, i) => {
             if (item.desktop) {
-              return <p>{item.text}</p>;
+              return <p key={i}>{item.text}</p>;
             }
           })}
         </div>

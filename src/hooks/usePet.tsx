@@ -8,7 +8,7 @@ import {
 } from "../redux/slices/pet.slice";
 import { AppDispatch } from "../redux/store";
 
-export const usePet = (slug, petId) => {
+export const usePet = () => {
   const dispatch: AppDispatch = useDispatch();
 
   const [response, setResponse] = useState<[]>();
@@ -29,7 +29,7 @@ export const usePet = (slug, petId) => {
     }
   };
 
-  const fetchAnimals = () => {
+  const fetchAnimals = (slug) => {
     setLoading(true);
     dispatch(getPetsByTypes({ slug, page, setTotalPages, setResponse }))
       .then(() => {

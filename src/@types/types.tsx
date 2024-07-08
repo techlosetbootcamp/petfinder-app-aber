@@ -118,3 +118,11 @@ export type FetchLimitedPetsByTypesArgs = {
   pageNumber: string;
   limit: string | number
 };
+
+
+
+export type NavContextType ={
+  open : true | false,
+  toggleMobileNav: () => void;
+
+}

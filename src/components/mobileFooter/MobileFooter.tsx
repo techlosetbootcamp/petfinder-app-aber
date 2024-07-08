@@ -77,9 +77,9 @@ const MobileFooter = () => {
         </div>
 
         <div className="py-[10px] px-[2px] flex flex-wrap gap-[10px] justify-center text-[10px] text-white">
-          {footerItems.map((item) => {
+          {footerItems.map((item,i) => {
             if (item.mobile) {
-              return <p>{item.text}</p>;
+              return <p key={i}>{item.text}</p>;
             }
           })}
         </div>

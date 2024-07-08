@@ -13,7 +13,7 @@ const ImageSection = () => {
     "large" : "bottom-0 h-screen z-10 fixed overflow-hidden"
   }
   const obj = usePetDetailContext();
-  console.log("in image section", obj?.pet?.name)
+
 
   
   return (

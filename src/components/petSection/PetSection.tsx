@@ -1,62 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Card2 from "../../commonComponents/card2/Card2";
 import img from "../../assets/petCommon.png";
 import img2 from "../../assets/icon1.svg"
 import { usePet } from "../../hooks/usePet";
-import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
 
 import { ImSpinner9 } from "react-icons/im";
 
-
-
+import { useLimit } from "../../hooks/useLimit";
 
 
 const PetSection = ({ pageNumber, heading }) => {
- 
-   const [limit, setLimit] = useState<number>();
-   const updateLimit = () => {
-     const width = window.innerWidth;
-     let newLimit:number;
- 
-     if (width < 768) { 
-       newLimit = 1;
-     } else if (width < 1024) { 
-       newLimit = 2;
-     } else if (width < 1280) {
-       newLimit = 3;
-     } else {                   
-       newLimit = 4;
-     }
- 
-     if (newLimit !== limit) {
-      setLimit(newLimit);
-    }
-   };
-
-   useEffect(() => {
-     updateLimit(); 
- 
-     window.addEventListener('resize', updateLimit);
- 
-     return () => {
-       window.removeEventListener('resize', updateLimit);
-     };
-   }, [limit]);
- 
-  const { fetchLimitedPets, loading } = usePet("", "");
-  const pets = useSelector(
-    (state: RootState) => state?.pets?.limitedPets?.animals
-  );
-
-
-  useEffect(()=>{
-    fetchLimitedPets(pageNumber,limit)
-
-  },[pageNumber, limit])
-
- 
-
+  const { fetchLimitedPets, loading } = usePet();
+  const {pets} = useLimit(pageNumber, fetchLimitedPets);
 
   return (
     <div className="text-center min-w-[300px] max-w-[1220px] mb-[50px] mx-auto">
