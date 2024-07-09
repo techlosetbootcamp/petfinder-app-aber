@@ -1,11 +1,12 @@
 import React from "react";
 
-import img from "../../assets/petCommon.png";
+import img from "../../assets/images/petCommon.png";
 import { ImSpinner9 } from "react-icons/im";
-import Card2 from "../../commonComponents/card2/Card2";
-import Button from "../../commonComponents/button/Button";
+
 import { usePet } from "../../hooks/usePet";
 import { useFindAnimals } from "../../hooks/useFindAnimals";
+import Button from "../../components/button/Button";
+import Card2 from "../../components/petCard/PetCard";
 
 const FindAnimals = () => {
   const {

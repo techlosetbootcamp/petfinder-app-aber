@@ -2,11 +2,12 @@ import React from "react";
 
 import { ImSpinner9 } from "react-icons/im";
 
-import Card2 from "../../commonComponents/card2/Card2";
-import img from "../../assets/petCommon.png";
-import Button from "../../commonComponents/button/Button";
+import img from "../../assets/images/petCommon.png";
+
 import { usePet } from "../../hooks/usePet";
 import { useCategory } from "../../hooks/useCategory";
+import Card2 from "../../components/petCard/PetCard";
+import Button from "../../components/button/Button";
 
 const Category = () => {
   const {
@@ -21,11 +22,12 @@ const Category = () => {
     loading,
   } = usePet();
 
-  const { pets, pagination, slug, slugName, totalPage } = useCategory(
+  const { pets, pagination, slug, slugName } = useCategory(
     setTotalPages,
     fetchAnimals,
     page
   );
+
 
   return (
     <>
@@ -53,7 +55,7 @@ const Category = () => {
                   return (
                     <div key={item?.id} className="">
                       <Card2
-                        breed={`${item?.breeds?.primary},`}
+                        breed={`${item?.breeds?.primary}`}
                         location={item?.contact?.address?.country}
                         text={item["name"]}
                         img={
@@ -71,7 +73,7 @@ const Category = () => {
             </div>
           )}
 
-          {totalPage > 1 && !loading && (
+          {pagination && pagination > 1 && !loading && (
             <div className="absolute w-full flex left-0 bottom-0 justify-center border-2 gap-4">
               <div onClick={prevPage}>
                 <Button
@@ -84,7 +86,7 @@ const Category = () => {
                 />
               </div>
               <p className="flex items-center text-[20px]">
-                Page {page} of {totalPages}
+                Page {page} of {pagination}
               </p>
               <div onClick={nextPage}>
                 <Button

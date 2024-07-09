@@ -1,9 +1,8 @@
 
 import axios from 'axios';
-
 const fetchToken = async () => {
-  const clientIdKey = "jIGqi9BJAWtWin2bKL06sZVg4WfOBQHyCQ0Nidm1aeNLJy69wh";
-  const clientSecretKey = "c5POxzDIXbSda7aYBdw5cCsh9ipJyHQ9VsMx0JRi";
+  const clientIdKey = import.meta.env.VITE_CLIENT_ID;
+  const clientSecretKey = import.meta.env.VITE_CLIENT_SECRET;
 
   try {
     const response = await axios.post(

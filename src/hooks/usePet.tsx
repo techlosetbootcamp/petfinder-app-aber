@@ -73,10 +73,6 @@ export const usePet = () => {
       });
   };
 
-  // useEffect(() => {
-  
-  //   fetchAnimals();
-  // }, [slug, page]);
   return {
     fetchAnimals,
     fetchSinglePet,

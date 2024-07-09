@@ -8,12 +8,13 @@ import DesktopNavbar from "../../components/desktopNavbar/DesktopNavbar";
 import MobileNavbar from "../../components/mobileNavbar/MobileNavbar";
 import { useContext, createContext } from "react";
 import { useNav } from "../../hooks/useNav";
-import { NavContextType } from "../../@types/types";
+import { NavContextType } from "../../types/types";
 
 const NavContext = createContext<NavContextType | null>(null);
 
 const LandingPage = () => {
   const { open, toggleMobileNav } = useNav();
+  
 
   return (
     <NavContext.Provider value={{ open, toggleMobileNav }}>
@@ -22,7 +23,7 @@ const LandingPage = () => {
         <DesktopNavbar />
         <MobileNavbar />
         <SearchSection />
-        <PetSection key={2} pageNumber={2} heading="Pets Available for Adoption Nearby"/>
+        <PetSection key={2} pageNumber={2} heading="Pets Available for Adoption Nearby" />
         <AdoptSection />
         <PetSection key={8} pageNumber={8} heading="Pets Available for Adoption Nearby"/>
         <AdoptionArticle />

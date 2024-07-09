@@ -5,10 +5,15 @@ import { RootState } from '../redux/store';
 export const useLimit = (pageNumber, fetchLimitedPets) => {
      
    const [limit, setLimit] = useState<number>();
+   const [totalCount, setTotalCount] = useState<number>();
 
    const pets = useSelector(
     (state: RootState) => state?.pets?.limitedPets?.animals
   );
+
+  const animalCount = useSelector((state:RootState)=>state.pets.limitedPets?.pagination?.total_count)
+
+
 
    const updateLimit = () => {
      const width = window.innerWidth;
@@ -23,9 +28,14 @@ export const useLimit = (pageNumber, fetchLimitedPets) => {
      } else {                   
        newLimit = 4;
      }
+     if(animalCount && limit){
+
+       setTotalCount(animalCount - limit);
+     }
  
      if (newLimit !== limit) {
       setLimit(newLimit);
+      
     }
    };
 
@@ -43,9 +53,10 @@ export const useLimit = (pageNumber, fetchLimitedPets) => {
    useEffect(()=>{
     fetchLimitedPets(pageNumber,limit)
 
-  },[pageNumber, limit])
+  },[limit])
   return {
     limit,
-    pets
+    pets,
+    animalCount,
   }
 }

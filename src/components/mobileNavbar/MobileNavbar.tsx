@@ -1,38 +1,89 @@
-import React from "react";
+import React, { useState } from "react";
 import { links } from "../../constants/navLinks";
 import { Link } from "react-router-dom";
-import logo from "/logo.svg"
+import logo from "/logo.svg";
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
 
 import { useNavContext } from "../../pages/landingPage/LandingPage";
-
-
 
 import { IoClose } from "react-icons/io5";
 
 const MobileNavbar = () => {
-  
-const object = useNavContext();
+  const [navClick, setNavClick] = useState<boolean>(false);
+
+  const object = useNavContext();
 
   return (
     <div className="overflow-hidden">
-    
-    <div className={`lg:hidden overflow-hidden fixed top-0 bg-purple w-full h-full z-10  flex flex-col justify-center items-center duration-500  ${object?.open ? "left-0" : "-left-[100%]"}`}>
-      <div onClick={object?.toggleMobileNav}>
-        <IoClose size={30} className="absolute top-4 right-4"/>
+      <div
+        className={`lg:hidden overflow-hidden fixed top-0 bg-purple xs:w-[90%] md:w-[70%] h-full z-10  p-[50px]  flex flex-col  duration-500  ${
+          object?.open ? "left-0" : "-left-[100%]"
+        }`}
+      >
+        <div onClick={object?.toggleMobileNav}>
+          <IoClose size={30} className="absolute top-4 right-4" />
+        </div>
+        <div className="pb-20">
+          <img src={logo} alt="" />
+        </div>
+        <div className="flex flex-col  text-primary font-bold gap-4 gap-8">
+          {links.map((link) => {
+            return (
+              <div>
+                <div className="flex justify-between">
+                  <Link
+                    key={link.text}
+                    to={link.path}
+                    className="hover:underline"
+                    onClick={() => {
+                      link.sublinks && setNavClick(!navClick);
+                    }}
+                  >
+                    {link.text}
+                  </Link>
+                  <div className="flex items-center">
+                    {link.sublinks &&
+                      (navClick ? (
+                        <IoIosArrowUp
+                          color="primary"
+                          onClick={() => setNavClick(false)}
+                        />
+                      ) : (
+                        <IoIosArrowDown
+                          color="primary"
+                          onClick={() => setNavClick(true)}
+                        />
+                      ))}
+                  </div>
+
+                  <>
+                    {link.sublinks && (
+                      <div
+                        className={` text-primary text-[15px] font-[100] absolute px-[60px] rounded-[2px] bottom-24  flex flex-col gap-[10px] ${
+                          navClick ? "block" : "hidden"
+                        } transition-all ease-in-out translate-y-1 duration-700`}
+                      >
+                        {link.sublinks.map((item) => {
+                          return (
+                            <Link
+                              key={item.text}
+                              to={item.path}
+                              className="hover:underline "
+                            >
+                              {item.text}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <div className="absolute top-12">
-        <img src={logo} alt="" />
-      </div>
-      <div className="flex flex-col items-center text-primary font-bold gap-4 gap-8">
-      {links.map((link) => {
-        return (
-          <Link key={link.text} to={link.path} className="hover:underline">
-            {link.text}
-          </Link>
-        );
-      })}
-      </div>
-    </div>
     </div>
   );
 };

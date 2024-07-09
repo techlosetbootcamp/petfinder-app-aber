@@ -1,6 +1,6 @@
 import React from "react";
-import Card4 from "../../commonComponents/card4/Card4";
-import img from "../../assets/petCommon.png";
+import Card4 from "../articleCard/ArticleCard";
+import img from "../../assets/images/petCommon.png";
 import { usePetDetailContext } from "../../pages/petDetail/PetDetail";
 
 const AdoptionStories = () => {
@@ -10,7 +10,7 @@ const AdoptionStories = () => {
       <div className=" py-[58px] lg:px-[50px] px-[10px] text-white">
         <div className="text-center">
           <p className="xs:text-[30px] lg:text-[40px] xs:leading-[36px] lg:leading-[48px] py-[8px]">
-          {obj?.pet?.breeds?.primary} Happy Tails
+            {obj?.pet?.breeds?.primary} Happy Tails
           </p>
           <p className="text-[16px] leading-[19.2px] underline">
             View Pet Adoption Stories
@@ -39,8 +39,8 @@ const AdoptionStories = () => {
             img={img}
             heading="Frances & Buster"
             text={`I saw Buster on Pet Finder and he fit what I
-was looking for perfectly - small and fluffy.
-He is a senior dog so he is settled, house…`}
+                   was looking for perfectly - small and fluffy.
+                   He is a senior dog so he is settled, house…`}
             size={"medium"}
             btnText={"Read More"}
           />

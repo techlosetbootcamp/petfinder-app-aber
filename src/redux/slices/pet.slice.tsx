@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { FetchLimitedPetsByTypesArgs, FetchPetsByTypesArgs, FetchSinglePetsByTypesArgs, PetState, PetsResponse, SinglePetResponse } from "../../@types/types";
+import { FetchLimitedPetsByTypesArgs, FetchPetsByTypesArgs, FetchSinglePetsByTypesArgs, PetState, PetsResponse, SinglePetResponse } from "../../types/types";
 import { addAuthorizationHeader, axiosInstance } from "../../constants/petfinderapi";
 
 
@@ -51,12 +51,15 @@ export const getLimitedPets = createAsyncThunk<
 PetsResponse, FetchLimitedPetsByTypesArgs,
   { rejectValue: string }
 >("pets/fetchByLimit", async ({pageNumber, limit}, rejectWithValue) => {
-  try {
-    await addAuthorizationHeader();
-    const response = await axiosInstance.get(`/animals?limit=${limit}&status=adoptable&page=${pageNumber}`);
-    return response?.data;
-  } catch (error) {
-    console.log(error);
+  if(limit){
+
+    try {
+      await addAuthorizationHeader();
+      const response = await axiosInstance.get(`/animals?limit=${limit}&status=adoptable&page=${pageNumber}`);
+      return response?.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 });
 

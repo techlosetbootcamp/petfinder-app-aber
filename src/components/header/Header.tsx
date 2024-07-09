@@ -1,6 +1,6 @@
 import React from "react";
-import img from "../../assets/upArrow.png";
-import img2 from "../../assets/blackHeart.png";
+import img from "../../assets/images/upArrow.png";
+import img2 from "../../assets/images/blackHeart.png";
 import { IoMenu } from "react-icons/io5";
 import { useNavContext } from "../../pages/landingPage/LandingPage";
 

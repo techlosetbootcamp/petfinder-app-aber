@@ -1,14 +1,12 @@
 import React from 'react'
 
-import { CardProps4 } from '../../@types/types'
+import { CardProps4 } from '../../types/types'
+import { ArticleCardSizeConstraints } from '../../constants/StylingConstraints'
 
-const Card4 = ({text, btnText, size, heading,img} : CardProps4) => {
-    const sizeConstraints = {
-        large : "lg:w-[600px] xs:w-[300px] h-[515.39px]",
-        medium : "w-[393px] h-[501px]"
-    }
+const ArticleCard = ({text, btnText, size, heading,img} : CardProps4) => {
+   
     return (
-        <div className={`${sizeConstraints[size]}`}>
+        <div className={`${ArticleCardSizeConstraints[size]}`}>
 
 
             <img src={img} alt="" className='w-full h-[260px] rounded-[8px] object-cover object-center' />
@@ -39,4 +37,4 @@ const Card4 = ({text, btnText, size, heading,img} : CardProps4) => {
     )
 }
 
-export default Card4
+export default ArticleCard

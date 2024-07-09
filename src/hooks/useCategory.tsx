@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { RootState } from '../redux/store';
 
-export const useCategory = (setTotalPages, fetchAnimals, page) => {
+export const useCategory = (setTotalPages,fetchAnimals, page) => {
     const { search } = useLocation();
     const params = new URLSearchParams(search);
     const slug = params.get("slug");
@@ -23,15 +23,15 @@ export const useCategory = (setTotalPages, fetchAnimals, page) => {
       (state: RootState) => state?.pets?.data?.pagination?.total_pages
     );
   
-    
-  const totalPage = pagination ?? 0;
+
 
   useEffect(() => {
-    setTotalPages(totalPage);
+    setTotalPages(pagination)
+
     fetchAnimals(slug);
   }, [slug, page]);
   return {
-    pets, pagination, slug, slugName, totalPage
+    pets, pagination, slug, slugName
 
   }
 }

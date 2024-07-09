@@ -1,10 +1,10 @@
 import React from "react";
-import bgImage from "../../assets/background.jfif";
-import img1 from "../../assets/img3.svg";
-import img2 from "../../assets/img4.svg";
-import img3 from "../../assets/img5.svg";
-import img4 from "../../assets/img6.svg";
-import Card from "../../commonComponents/card/Card";
+import bgImage from "../../assets/images/background.jfif";
+import img1 from "../../assets/images/img3.svg";
+import img2 from "../../assets/images/img4.svg";
+import img3 from "../../assets/images/img5.svg";
+import img4 from "../../assets/images/img6.svg";
+import Card from "../imageCard/ImageCard";
 
 import SearchInput from "../searchInput/SearchInput";
 
@@ -36,7 +36,7 @@ const cardData = [
 ];
 
 const SearchSection = () => {
-  const {isModalOpen,toggleModal} = useSearch()
+  const { isModalOpen, toggleModal } = useSearch();
 
   return (
     <section className="relative box-border  mb-[120px]">

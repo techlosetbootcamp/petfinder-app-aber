@@ -1,5 +1,5 @@
 import React from 'react'
-import img from "../../assets/rightArrow.png"
+import img from "../../assets/images/rightArrow.png"
 
 const TopBar = () => {
   return (

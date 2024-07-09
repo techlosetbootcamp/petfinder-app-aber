@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import img from "../../assets/petCommon.png"
-import btn from "../../assets/resizeBtn.png"
+import img from "../../assets/images/petCommon.png"
+import btn from "../../assets/images/resizeBtn.png"
 
 import { usePetDetailContext } from '../../pages/petDetail/PetDetail'
 

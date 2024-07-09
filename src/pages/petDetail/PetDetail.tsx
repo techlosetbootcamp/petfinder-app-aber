@@ -9,7 +9,7 @@ import PetInquirySection from "../../components/petInquirySection/PetInquirySect
 import { usePet } from "../../hooks/usePet";
 
 import { ImSpinner9 } from "react-icons/im";
-import { PetDetailType } from "../../@types/types";
+import { PetDetailType } from "../../types/types";
 import { usePetDetail } from "../../hooks/usePetDetail";
 
 const PetDetailContext = createContext<PetDetailType | null>(null);
@@ -38,7 +38,7 @@ const PetDetail = () => {
           <AboutSection />
           <PetInquirySection />
           <AdoptionStories />
-          <PetSection pageNumber={26} heading={"More Animals"} />
+          <PetSection pageNumber={26} heading={"More Animals"}/>
         </>
       )}
     </PetDetailContext.Provider>

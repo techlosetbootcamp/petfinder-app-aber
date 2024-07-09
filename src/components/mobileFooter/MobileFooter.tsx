@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import logo from "/logoWhite.svg";
-import Button from "../../commonComponents/button/Button";
+
 
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import { footerItems, footerLinks } from "../../constants/FooterLinks";
+import Button from "../button/Button";
 
 const MobileFooter = () => {
   const [heading, setHeading] = useState("");

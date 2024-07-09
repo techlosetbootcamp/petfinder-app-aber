@@ -1,5 +1,5 @@
 import React from 'react'
-import img from "../../assets/petCommon.png"
+import img from "../../assets/images/petCommon.png"
 import { usePetDetailContext } from '../../pages/petDetail/PetDetail';
 
 const PetInquirySection = () => {

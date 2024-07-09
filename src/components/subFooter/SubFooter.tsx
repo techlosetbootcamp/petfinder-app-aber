@@ -1,9 +1,9 @@
 import React from 'react'
-import icon1 from "../../assets/fb.svg"
-import icon2 from "../../assets/twitter.svg"
-import icon3 from "../../assets/insta.svg"
-import icon4 from "../../assets/yt.svg"
-import icon5 from "../../assets/pinterest.svg"
+import icon1 from "../../assets/images/fb.svg"
+import icon2 from "../../assets/images/twitter.svg"
+import icon3 from "../../assets/images/insta.svg"
+import icon4 from "../../assets/images/yt.svg"
+import icon5 from "../../assets/images/pinterest.svg"
 
 
 const SubFooter = () => {

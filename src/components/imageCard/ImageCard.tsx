@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { CardProps1 } from '../../@types/types'
+import { ImageCardProps } from '../../types/types'
 
-const Card = ({text, img, path, onClick, size} : CardProps1) => {
+const ImageCard = ({text, img, path, onClick, size} : ImageCardProps) => {
   const sizeConstraints = {
     "small" : "xs:w-[90px] sm:w-[131px]",
     "medium" : "xs:w-[131px] lg:w-[181px] "
@@ -20,7 +20,7 @@ const Card = ({text, img, path, onClick, size} : CardProps1) => {
   )
 }
 
-export default Card
+export default ImageCard
 
 
 

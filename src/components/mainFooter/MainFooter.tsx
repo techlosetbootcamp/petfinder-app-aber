@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../commonComponents/button/Button";
+import Button from "../button/Button";
 import { footerItems, footerLinks } from "../../constants/FooterLinks";
 
 const MainFooter = () => {
@@ -16,7 +16,7 @@ const MainFooter = () => {
               <div key={i}>
                 <h3 className="py-3 uppercase  text-[14px] ">{links.text}</h3>
                 {links.sublinks.map((sublinks) => {
-                  return <p className="text-[13px]">{sublinks.text}</p>;
+                  return <p key={sublinks.text} className="text-[13px]">{sublinks.text}</p>;
                 })}
               </div>
             );

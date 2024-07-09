@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import img from "../../assets/searchIcon.svg"
+import img from "../../assets/images/searchIcon.svg"
 import { useSearch } from '../../hooks/useSearch'
 
 

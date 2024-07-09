@@ -7,7 +7,7 @@ export type ButtonProps = {
   border: string;
 };
 
-export type CardProps1 = {
+export type ImageCardProps = {
   text: string;
   img: string;
   path: string;
@@ -15,7 +15,7 @@ export type CardProps1 = {
   onClick: () => void;
 };
 
-export type CardProps2 = {
+export type PetCardProps = {
   text: string;
   img: string;
   path: string;
@@ -83,6 +83,7 @@ export type PetDetailType = {
 export type Pagination = {
   total_pages: number;
   current_page: number;
+  total_count : number;
 };
 
 export type PetsResponse = {

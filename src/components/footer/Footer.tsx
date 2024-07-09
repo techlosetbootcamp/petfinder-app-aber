@@ -1,7 +1,7 @@
 import React from 'react'
-import vector from "../../assets/vector3.svg"
-import img1 from "../../assets/img1.svg"
-import img2 from "../../assets/img2.svg"
+import vector from "../../assets/images/vector3.svg"
+import img1 from "../../assets/images/img1.svg"
+import img2 from "../../assets/images/img2.svg"
 
 const Footer = () => {
   return (
