@@ -1,15 +1,18 @@
-import { useState } from 'react'
+import { useState } from "react";
 
 export const useNav = () => {
-  
-    const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
+  const [navClick, setNavClick] = useState<boolean>(false);
 
-    const toggleMobileNav = ()=>{
-        console.log("clicked", open);
-      setOpen((prev) => !prev)
-    }
-    
+  const toggleMobileNav = () => {
+    setOpen((prev) => !prev);
+  };
+
   return {
-    open, setOpen,toggleMobileNav
-  }
-}
+    open,
+    setOpen,
+    toggleMobileNav,
+    navClick,
+    setNavClick
+  };
+};

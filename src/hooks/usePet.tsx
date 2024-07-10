@@ -62,9 +62,9 @@ export const usePet = () => {
       });
   };
 
-  const fetchLimitedPets = (pageNumber, limit) => {
+  const fetchLimitedPets = () => {
     setLoading(true);
-    dispatch(getLimitedPets({pageNumber, limit}))
+    dispatch(getLimitedPets())
       .then(() => {
         setLoading(false);
       })

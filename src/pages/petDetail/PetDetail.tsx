@@ -14,10 +14,9 @@ import { usePetDetail } from "../../hooks/usePetDetail";
 
 const PetDetailContext = createContext<PetDetailType | null>(null);
 
-const PetDetail = () => {  
-  
-  const { fetchSinglePet, animal, setAnimal, loading } = usePet();
-  const {pet} = usePetDetail(fetchSinglePet)
+const PetDetail = () => {
+  const { fetchSinglePet, loading } = usePet();
+  const { pet } = usePetDetail(fetchSinglePet);
   return (
     <PetDetailContext.Provider value={{ pet }}>
       {loading ? (
@@ -38,7 +37,7 @@ const PetDetail = () => {
           <AboutSection />
           <PetInquirySection />
           <AdoptionStories />
-          <PetSection pageNumber={26} heading={"More Animals"}/>
+          {/* <PetSection pageNumber={5} heading={"More Animals"}/> */}
         </>
       )}
     </PetDetailContext.Provider>

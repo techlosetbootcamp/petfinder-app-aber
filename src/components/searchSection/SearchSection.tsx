@@ -40,16 +40,16 @@ const SearchSection = () => {
 
   return (
     <section className="relative box-border  mb-[120px]">
-      <div className="relative lg:-mt-14 border-b-[10px] border-primary h-full">
+      <div className="relative lg:-mt-14 border-b-[10px] border-primary xs:h-[200px] sm:h-[354px] overflow-hidden">
         <img
           src={bgImage}
-          className="brightness-75 w-full sm:h-auto xs:h-[200px] bg-center bg-cover"
+          className="brightness-75 w-full sm:h-full xs:h-full bg-center bg-cover"
         />
         <div className="flex justify-center self-center left-0 right-0 mx-auto absolute lg:top-[75px] xs:top-[20px]">
           <SearchInput />
         </div>
 
-        <div className="absolute xs:bottom-12 md:bottom-20 lg:bottom-28 xl:bottom-32 2xl:bottom-40 text-center w-full">
+        <div className="absolute xs:bottom-8 sm:bottom-40 lg:bottom-28 xl:bottom-24 2xl:bottom-28 text-center w-full">
           <p className="font-bold text-white xs:text-[30px] xl:text-[41.84px] xs:leading-[34px] md:leading-[24px] xl:leading-[54px]">
             Find your new best friend
           </p>

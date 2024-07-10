@@ -1,62 +1,57 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
-import { RootState } from '../redux/store';
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
-export const useLimit = (pageNumber, fetchLimitedPets) => {
-     
-   const [limit, setLimit] = useState<number>();
-   const [totalCount, setTotalCount] = useState<number>();
+export const useLimit = (fetchLimitedPets) => {
+  const [limit, setLimit] = useState<number>();
+  const [totalCount, setTotalCount] = useState<number>();
 
-   const pets = useSelector(
+  const pets = useSelector(
     (state: RootState) => state?.pets?.limitedPets?.animals
   );
 
-  const animalCount = useSelector((state:RootState)=>state.pets.limitedPets?.pagination?.total_count)
+  const animalCount = useSelector(
+    (state: RootState) => state.pets.limitedPets?.pagination?.total_count
+  );
 
+  const updateLimit = () => {
+    const width = window.innerWidth;
+    let newLimit: number;
 
-
-   const updateLimit = () => {
-     const width = window.innerWidth;
-     let newLimit:number;
- 
-     if (width < 768) { 
-       newLimit = 1;
-     } else if (width < 1024) { 
-       newLimit = 2;
-     } else if (width < 1280) {
-       newLimit = 3;
-     } else {                   
-       newLimit = 4;
-     }
-     if(animalCount && limit){
-
-       setTotalCount(animalCount - limit);
-     }
- 
-     if (newLimit !== limit) {
-      setLimit(newLimit);
-      
+    if (width < 768) {
+      newLimit = 1;
+    } else if (width < 1024) {
+      newLimit = 2;
+    } else if (width < 1280) {
+      newLimit = 3;
+    } else {
+      newLimit = 4;
     }
-   };
+    if (animalCount && limit) {
+      setTotalCount(animalCount - limit);
+    }
 
-   useEffect(() => {
-     updateLimit(); 
- 
-     window.addEventListener('resize', updateLimit);
- 
-     return () => {
-       window.removeEventListener('resize', updateLimit);
-     };
-   }, [limit]);
+    if (newLimit !== limit) {
+      setLimit(newLimit);
+    }
+  };
 
+  useEffect(() => {
+    updateLimit();
 
-   useEffect(()=>{
-    fetchLimitedPets(pageNumber,limit)
+    window.addEventListener("resize", updateLimit);
 
-  },[limit])
+    return () => {
+      window.removeEventListener("resize", updateLimit);
+    };
+  }, [limit]);
+
+  useEffect(() => {
+    fetchLimitedPets();
+  }, [limit]);
   return {
     limit,
     pets,
     animalCount,
-  }
-}
+  };
+};

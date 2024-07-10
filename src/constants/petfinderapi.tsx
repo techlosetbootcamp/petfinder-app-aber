@@ -1,5 +1,5 @@
+import axios from "axios";
 
-import axios from 'axios';
 const fetchToken = async () => {
   const clientIdKey = import.meta.env.VITE_CLIENT_ID;
   const clientSecretKey = import.meta.env.VITE_CLIENT_SECRET;
@@ -16,8 +16,7 @@ const fetchToken = async () => {
 
     return response.data.access_token;
   } catch (error) {
-    console.error( error);
-   
+    console.error(error);
   }
 };
 
@@ -38,5 +37,3 @@ export const addAuthorizationHeader = async () => {
     ] = `Bearer ${accessToken}`;
   }
 };
-
-

@@ -4,20 +4,19 @@ import { Link } from "react-router-dom";
 import logo from "/logo.svg";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
-
+import { useNav } from "../../hooks/useNav";
 import { useNavContext } from "../../pages/landingPage/LandingPage";
 
 import { IoClose } from "react-icons/io5";
 
 const MobileNavbar = () => {
-  const [navClick, setNavClick] = useState<boolean>(false);
-
+  const { navClick, setNavClick } = useNav();
   const object = useNavContext();
 
   return (
     <div className="overflow-hidden">
       <div
-        className={`lg:hidden overflow-hidden fixed top-0 bg-purple xs:w-[90%] md:w-[70%] h-full z-10  p-[50px]  flex flex-col  duration-500  ${
+        className={`lg:hidden overflow-hidden fixed top-0 bg-purple w-full h-full z-10  p-[50px]  flex flex-col  duration-500  ${
           object?.open ? "left-0" : "-left-[100%]"
         }`}
       >
@@ -30,10 +29,9 @@ const MobileNavbar = () => {
         <div className="flex flex-col  text-primary font-bold gap-4 gap-8">
           {links.map((link) => {
             return (
-              <div>
+              <div key={link.text}>
                 <div className="flex justify-between">
                   <Link
-                    key={link.text}
                     to={link.path}
                     className="hover:underline"
                     onClick={() => {

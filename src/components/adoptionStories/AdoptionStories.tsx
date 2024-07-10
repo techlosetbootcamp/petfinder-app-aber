@@ -1,6 +1,6 @@
 import React from "react";
-import Card4 from "../articleCard/ArticleCard";
-import img from "../../assets/images/petCommon.png";
+import ArticleCard from "../articleCard/ArticleCard";
+import img from "../../assets/images/petCommon.svg";
 import { usePetDetailContext } from "../../pages/petDetail/PetDetail";
 
 const AdoptionStories = () => {
@@ -18,7 +18,7 @@ const AdoptionStories = () => {
         </div>
 
         <div className="flex xs:gap-[20px] lg:gap-[20px] py-[40px] flex-wrap justify-center">
-          <Card4
+          <ArticleCard
             img={img}
             heading="Darlene and Molly"
             text={`We had lost x2 fur baby's, one about a
@@ -27,7 +27,7 @@ const AdoptionStories = () => {
             btnText={"Read More"}
           />
 
-          <Card4
+          <ArticleCard
             img={img}
             heading="Nina & Zuli"
             text={`she is 16 yrs old`}
@@ -35,7 +35,7 @@ const AdoptionStories = () => {
             btnText={"Read More"}
           />
 
-          <Card4
+          <ArticleCard
             img={img}
             heading="Frances & Buster"
             text={`I saw Buster on Pet Finder and he fit what I

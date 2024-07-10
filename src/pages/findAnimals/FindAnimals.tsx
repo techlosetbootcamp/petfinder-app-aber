@@ -1,6 +1,6 @@
 import React from "react";
 
-import img from "../../assets/images/petCommon.png";
+import img from "../../assets/images/petCommon.svg";
 import { ImSpinner9 } from "react-icons/im";
 
 import { usePet } from "../../hooks/usePet";
@@ -15,7 +15,6 @@ const FindAnimals = () => {
     nextPage,
     setTotalPages,
     page,
-    totalPages,
     loading,
   } = usePet();
 

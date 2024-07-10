@@ -1,17 +1,15 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import TopBar from '../../components/topBar/TopBar'
-
+import React from "react";
+import { Outlet } from "react-router-dom";
+import TopBar from "../../components/topBar/TopBar";
 
 const Home = () => {
   return (
     <div>
-        
-    <TopBar/>
- 
-      <Outlet/>
-    </div>
-  )
-}
+      <TopBar />
 
-export default Home
+      <Outlet />
+    </div>
+  );
+};
+
+export default Home;

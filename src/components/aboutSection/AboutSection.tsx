@@ -1,6 +1,6 @@
 import React from "react";
 import img from "../../assets/images/alert.svg";
-import img2 from "../../assets/images/img7.png";
+import img2 from "../../assets/images/img7.svg";
 import img3 from "../../assets/images/location.svg";
 import img4 from "../../assets/images/contact.svg";
 import Button from "../button/Button";

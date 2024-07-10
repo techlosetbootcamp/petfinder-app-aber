@@ -24,7 +24,9 @@ export const useFindAnimals = (setTotalPages, fetchSearchedPets) => {
     fetchSearchedPets();
   }, [search]);
 
-  return{
-    search, pets, totalPage
-  }
+  return {
+    search,
+    pets,
+    totalPage,
+  };
 };

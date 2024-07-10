@@ -11,12 +11,16 @@ const MainFooter = () => {
         </div>
 
         <div className="relative flex lg:gap-[15px] xl:gap-[38px]">
-          {footerLinks.map((links,i) => {
+          {footerLinks.map((links, i) => {
             return (
               <div key={i}>
                 <h3 className="py-3 uppercase  text-[14px] ">{links.text}</h3>
                 {links.sublinks.map((sublinks) => {
-                  return <p key={sublinks.text} className="text-[13px]">{sublinks.text}</p>;
+                  return (
+                    <p key={sublinks.text} className="text-[13px]">
+                      {sublinks.text}
+                    </p>
+                  );
                 })}
               </div>
             );

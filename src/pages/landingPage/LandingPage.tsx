@@ -14,7 +14,6 @@ const NavContext = createContext<NavContextType | null>(null);
 
 const LandingPage = () => {
   const { open, toggleMobileNav } = useNav();
-  
 
   return (
     <NavContext.Provider value={{ open, toggleMobileNav }}>
@@ -23,12 +22,11 @@ const LandingPage = () => {
         <DesktopNavbar />
         <MobileNavbar />
         <SearchSection />
-        <PetSection key={2} pageNumber={2} heading="Pets Available for Adoption Nearby" />
+        {/* <PetSection  pageNumber={2} heading="Pets Available for Adoption Nearby" /> */}
         <AdoptSection />
-        <PetSection key={8} pageNumber={8} heading="Pets Available for Adoption Nearby"/>
+        {/* <PetSection  pageNumber={8} heading="Pets Available for Adoption Nearby"/> */}
         <AdoptionArticle />
       </div>
-   
     </NavContext.Provider>
   );
 };

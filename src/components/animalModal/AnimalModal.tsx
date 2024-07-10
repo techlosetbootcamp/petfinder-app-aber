@@ -2,7 +2,7 @@ import React from "react";
 
 import img from "../../assets/images/img5.svg";
 
-import Card from "../imageCard/ImageCard";
+import ImageCard from "../imageCard/ImageCard";
 
 import { IoClose } from "react-icons/io5";
 
@@ -49,7 +49,7 @@ const AnimalModal = ({ onClick }) => {
       <div className="grid xs:grid-cols-3 lg:grid-cols-6 items-center justify-center gap-5 px-[10px]">
         {cardData.map((item) => {
           return (
-            <Card
+            <ImageCard
               key={item.text}
               img={item.img}
               text={item.text}

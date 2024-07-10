@@ -1,8 +1,8 @@
 import React from "react";
 import img1 from "../../assets/images/img6.svg";
-import img2 from "../../assets/images/health.png";
+import img2 from "../../assets/images/health.svg";
 import img3 from "../../assets/images/img3.svg";
-import Card3 from "../queryCard/QueryCard";
+import QueryCard from "../queryCard/QueryCard";
 
 const AdoptSection = () => {
   return (
@@ -12,21 +12,21 @@ const AdoptSection = () => {
       </p>
 
       <div className="flex flex-wrap justify-center gap-3 pt-[80px] pb-[32px]">
-        <Card3
+        <QueryCard
           img={img1}
           heading="Checklist for new adopters"
           text="Make the adoption transition as smooth as
                 possible."
           btnText="Learn More"
         />
-        <Card3
+        <QueryCard
           img={img2}
           heading="COVID-19 Resources"
           text="Learn how shelters/rescue groups are adapting.
                 Find out how you can help dogs and cats."
           btnText="Learn More"
         />
-        <Card3
+        <QueryCard
           img={img3}
           heading="Pet Adoption FAQs"
           text="Get answer to all the you questions you haven’t

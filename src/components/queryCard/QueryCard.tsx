@@ -1,8 +1,8 @@
 import React from "react";
 import Button from "../button/Button";
-import { CardProps3 } from "../../types/types";
+import { QueryCardProps } from "../../types/types";
 
-const Card3 = ({ btnText, heading, text, img }: CardProps3) => {
+const QueryCard = ({ btnText, heading, text, img }: QueryCardProps) => {
   return (
     <div>
       <div className="xs:w-auto lg:w-96 p-4 grid rounded-md bg-white box-border">
@@ -24,4 +24,4 @@ const Card3 = ({ btnText, heading, text, img }: CardProps3) => {
   );
 };
 
-export default Card3;
+export default QueryCard;

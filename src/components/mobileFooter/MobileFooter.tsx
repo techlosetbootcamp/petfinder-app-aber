@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import logo from "/logoWhite.svg";
 
-
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import { footerItems, footerLinks } from "../../constants/FooterLinks";
@@ -78,7 +77,7 @@ const MobileFooter = () => {
         </div>
 
         <div className="py-[10px] px-[2px] flex flex-wrap gap-[10px] justify-center text-[10px] text-white">
-          {footerItems.map((item,i) => {
+          {footerItems.map((item, i) => {
             if (item.mobile) {
               return <p key={i}>{item.text}</p>;
             }

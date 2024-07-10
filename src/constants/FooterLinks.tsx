@@ -133,8 +133,6 @@ export const footerLinks = [
   },
 ];
 
-
-
 export const footerItems = [
   {
     text: "Shelter & Rescue Registration",

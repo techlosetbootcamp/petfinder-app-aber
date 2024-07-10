@@ -1,6 +1,6 @@
 import React from "react";
 import Card2 from "../petCard/PetCard";
-import img from "../../assets/images/petCommon.png";
+import img from "../../assets/images/petCommon.svg";
 import img2 from "../../assets/images/icon1.svg";
 import { usePet } from "../../hooks/usePet";
 
@@ -10,7 +10,7 @@ import { useLimit } from "../../hooks/useLimit";
 
 const PetSection = ({ pageNumber, heading }) => {
   const { fetchLimitedPets, loading } = usePet();
-  const { pets, animalCount, limit } = useLimit(pageNumber, fetchLimitedPets);
+  const { pets, animalCount, limit } = useLimit(fetchLimitedPets);
 
   return (
     <div className="text-center min-w-[300px] max-w-[1220px] mb-[50px] mx-auto">
@@ -29,25 +29,47 @@ const PetSection = ({ pageNumber, heading }) => {
         </div>
       ) : (
         <div className="grid xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-rows-1 gap-[16px] justify-center place-items-center mx-auto overflow-hidden">
-          {pets?.map((item, i) => {
-            if (item?.status === "adoptable") {
-              return (
-                <Card2
-                  key={i}
-                  breed=""
-                  location=""
-                  shadow="shadow"
-                  img={
-                    item?.photos?.[0]?.small ? item?.photos?.[0]?.small : img
-                  }
-                  text={item.name}
-                  path={`/petDetail/${item?.id}`}
-                />
-              );
-            }
-          })}
+          {pageNumber == 2
+            ? pets?.slice(0, limit)?.map((item, i) => {
+                if (item?.status === "adoptable") {
+                  return (
+                    <Card2
+                      key={i}
+                      breed=""
+                      location=""
+                      shadow="shadow"
+                      img={
+                        item?.photos?.[0]?.small
+                          ? item?.photos?.[0]?.small
+                          : img
+                      }
+                      text={item.name}
+                      path={`/petDetail/${item?.id}`}
+                    />
+                  );
+                }
+              })
+            : pets?.slice(10, limit && 10 + limit)?.map((item, i) => {
+                if (item?.status === "adoptable") {
+                  return (
+                    <Card2
+                      key={i}
+                      breed=""
+                      location=""
+                      shadow="shadow"
+                      img={
+                        item?.photos?.[0]?.small
+                          ? item?.photos?.[0]?.small
+                          : img
+                      }
+                      text={item.name}
+                      path={`/petDetail/${item?.id}`}
+                    />
+                  );
+                }
+              })}
 
-          <div className="bg-[#6504B5] xs:w-[131px] rounded-[10px] sm:w-56 flex flex-col h-full items-center justify-between">
+          <div className="bg-primary xs:w-[131px] rounded-[10px] sm:w-56 flex flex-col h-full items-center justify-between">
             <div className=" flex flex-col self-center items-center justify-center xs:h-32 sm:h-56 gap-[20px] w-full py-[5px]">
               <img src={img2} alt="" className="" />
               {animalCount && limit && (
@@ -57,7 +79,7 @@ const PetSection = ({ pageNumber, heading }) => {
               )}
             </div>
 
-            <div className="h-[56px] border-t border-[#2E0152] w-full flex items-center justify-center">
+            <div className="h-[56px] border-t border-darkBlue w-full flex items-center justify-center">
               <p className="text-[14px] leading-[19.6px] text-white uppercase ">
                 Meet them
               </p>

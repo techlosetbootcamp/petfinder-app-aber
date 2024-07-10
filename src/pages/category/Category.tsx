@@ -2,7 +2,7 @@ import React from "react";
 
 import { ImSpinner9 } from "react-icons/im";
 
-import img from "../../assets/images/petCommon.png";
+import img from "../../assets/images/petCommon.svg";
 
 import { usePet } from "../../hooks/usePet";
 import { useCategory } from "../../hooks/useCategory";
@@ -10,24 +10,14 @@ import Card2 from "../../components/petCard/PetCard";
 import Button from "../../components/button/Button";
 
 const Category = () => {
-  const {
-    fetchAnimals,
-    prevPage,
-    nextPage,
-    response,
-    setResponse,
-    setTotalPages,
-    page,
-    totalPages,
-    loading,
-  } = usePet();
+  const { fetchAnimals, prevPage, nextPage, setTotalPages, page, loading } =
+    usePet();
 
   const { pets, pagination, slug, slugName } = useCategory(
     setTotalPages,
     fetchAnimals,
     page
   );
-
 
   return (
     <>

@@ -22,17 +22,16 @@ export type PetCardProps = {
   shadow: string;
   location: string | undefined;
   breed: string;
- 
 };
 
-export type CardProps3 = {
+export type QueryCardProps = {
   btnText: string;
   heading: string;
   text: string;
   img: string;
 };
 
-export type CardProps4 = {
+export type ArticleCardProps = {
   text: string;
   btnText: string;
   size: string;
@@ -83,7 +82,7 @@ export type PetDetailType = {
 export type Pagination = {
   total_pages: number;
   current_page: number;
-  total_count : number;
+  total_count: number;
 };
 
 export type PetsResponse = {
@@ -115,15 +114,7 @@ export type FetchSinglePetsByTypesArgs = {
   petId: string;
 };
 
-export type FetchLimitedPetsByTypesArgs = {
-  pageNumber: string;
-  limit: string | number
-};
-
-
-
-export type NavContextType ={
-  open : true | false,
+export type NavContextType = {
+  open: true | false;
   toggleMobileNav: () => void;
-
-}
+};
