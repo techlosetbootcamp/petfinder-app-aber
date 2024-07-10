@@ -37,7 +37,7 @@ const PetDetail = () => {
           <AboutSection />
           <PetInquirySection />
           <AdoptionStories />
-          {/* <PetSection pageNumber={5} heading={"More Animals"}/> */}
+          <PetSection pageNumber={5} heading={"More Animals"}/>
         </>
       )}
     </PetDetailContext.Provider>

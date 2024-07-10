@@ -22,9 +22,9 @@ const LandingPage = () => {
         <DesktopNavbar />
         <MobileNavbar />
         <SearchSection />
-        {/* <PetSection  pageNumber={2} heading="Pets Available for Adoption Nearby" /> */}
+        <PetSection  pageNumber={2} heading="Pets Available for Adoption Nearby" />
         <AdoptSection />
-        {/* <PetSection  pageNumber={8} heading="Pets Available for Adoption Nearby"/> */}
+        <PetSection  pageNumber={8} heading="Pets Available for Adoption Nearby"/>
         <AdoptionArticle />
       </div>
     </NavContext.Provider>
