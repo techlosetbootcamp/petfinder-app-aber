@@ -13,6 +13,6 @@ export const useNav = () => {
     setOpen,
     toggleMobileNav,
     navClick,
-    setNavClick
+    setNavClick,
   };
 };

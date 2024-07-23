@@ -1,7 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import {
+  FetchLimitedPetsByTypesArgs,
   FetchPetsByTypesArgs,
+  FetchSearchedPetsByTypesArgs,
   FetchSinglePetsByTypesArgs,
   PetState,
   PetsResponse,
@@ -52,27 +54,35 @@ export const getPetById = createAsyncThunk<
   }
 });
 
-export const getLimitedPets = createAsyncThunk<PetsResponse>(
-  "pets/fetchByLimit",
-  async () => {
+export const getLimitedPets = createAsyncThunk<
+  PetsResponse,
+  FetchLimitedPetsByTypesArgs
+>("pets/fetchByLimit", async (type, location) => {
+  if (type) {
     try {
       await addAuthorizationHeader();
-      const response = await axiosInstance.get(`/animals?status=adoptable`);
+      const response = await axiosInstance.get(
+        type
+          ? `/animals?type=${type}&location=${location}`
+          : `/animals?status=adoptable`
+      );
       return response?.data;
     } catch (error) {
       console.log(error);
     }
   }
-);
+});
 
 export const searchPets = createAsyncThunk<
   PetsResponse,
-  "",
-  { rejectValue: string }
->("pets/searchPets", async () => {
+  FetchSearchedPetsByTypesArgs
+>("pets/searchPets", async ({ page, search, queryInput }) => {
   try {
     await addAuthorizationHeader();
-    const response = await axiosInstance.get(`/animals?limit=100`);
+
+    const response = await axiosInstance.get(
+      `/animals?${queryInput}=${search}&limit=100&page=${page}`
+    );
     return response?.data;
   } catch (error) {
     console.log(error);

@@ -1,13 +1,10 @@
 import React, { createContext, useContext } from "react";
 import AboutSection from "../../components/aboutSection/AboutSection";
 import AdoptionStories from "../../components/adoptionStories/AdoptionStories";
-import Header from "../../components/header/Header";
 import ImageSection from "../../components/imageSection/ImageSection";
 import PetSection from "../../components/petSection/PetSection";
 import PetInquirySection from "../../components/petInquirySection/PetInquirySection";
-
 import { usePet } from "../../hooks/usePet";
-
 import { ImSpinner9 } from "react-icons/im";
 import { PetDetailType } from "../../types/types";
 import { usePetDetail } from "../../hooks/usePetDetail";
@@ -32,12 +29,16 @@ const PetDetail = () => {
         </div>
       ) : (
         <>
-          <Header />
           <ImageSection />
           <AboutSection />
           <PetInquirySection />
           <AdoptionStories />
-          <PetSection pageNumber={5} heading={"More Animals"}/>
+          <PetSection
+            pageNumber={5}
+            heading={`More ${pet?.type + "s"} from ${
+              pet?.contact?.address?.state
+            } Animals In Need`}
+          />
         </>
       )}
     </PetDetailContext.Provider>

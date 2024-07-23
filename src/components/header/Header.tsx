@@ -1,8 +1,9 @@
 import React from "react";
 import img from "../../assets/images/upArrow.svg";
-import img2 from "../../assets/images/blackHeart.svg";
+import blackHeart from "../../assets/images/blackHeart.svg";
+import primaryHeart from "../../assets/images/purpleHeart.svg";
 import { IoMenu } from "react-icons/io5";
-import { useNavContext } from "../../pages/landingPage/LandingPage";
+import { useNavContext } from "../../pages/home/Home";
 
 const Header = () => {
   const object = useNavContext();
@@ -23,13 +24,19 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="h-[70px] lg:block xs:flex xs:gap-[4px] xs:pr-[20px] lg:pr-[5px]">
-          <img src={img2} alt="" className="mx-auto h-full " />
-          <div
-            onClick={object?.toggleMobileNav}
-            className="mt-[21px] lg:hidden"
-          >
-            <IoMenu size={25} />
+        <div className="h-[70px] lg:block items-center xs:flex xs:gap-[4px] xs:pr-[20px] lg:pr-[5px]">
+          <img
+            src={blackHeart}
+            alt=""
+            className="mx-auto h-full lg:block xs:hidden "
+          />
+          <img
+            src={primaryHeart}
+            alt=""
+            className="mx-auto h-[21.84px] xs:block lg:hidden "
+          />
+          <div onClick={object?.toggleMobileNav} className="lg:hidden">
+            <IoMenu className="text-primary" size={30} />
           </div>
         </div>
 

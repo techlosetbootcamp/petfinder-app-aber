@@ -13,7 +13,7 @@ export const links = [
   },
   {
     text: "Other Types of Pets",
-    path: "#",
+    path: "",
     sublinks: [
       {
         text: "Rabbits",

@@ -20,8 +20,12 @@ export type PetCardProps = {
   img: string;
   path: string;
   shadow: string;
-  location: string | undefined;
-  breed: string;
+  city: string | undefined;
+  state: string | undefined;
+  primaryBreed: string;
+  secondaryBreed: string | null | undefined;
+  width: string;
+  height: string;
 };
 
 export type QueryCardProps = {
@@ -112,6 +116,17 @@ export type FetchPetsByTypesArgs = {
 
 export type FetchSinglePetsByTypesArgs = {
   petId: string;
+};
+
+export type FetchLimitedPetsByTypesArgs = {
+  type: string | null | undefined;
+  location: string | null | undefined;
+};
+
+export type FetchSearchedPetsByTypesArgs = {
+  page: number;
+  search: string;
+  queryInput: string;
 };
 
 export type NavContextType = {

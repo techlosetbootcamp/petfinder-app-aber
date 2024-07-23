@@ -18,16 +18,17 @@ const FindAnimals = () => {
     loading,
   } = usePet();
 
-  const { search, pets, totalPage } = useFindAnimals(
+  const { search, queryInput, pets, totalPage } = useFindAnimals(
     setTotalPages,
-    fetchSearchedPets
+    fetchSearchedPets,
+    page
   );
 
   return (
-    <div className="bg-white w-full  min-h-96 py-[10px] relative">
+    <div className="bg-white w-full  min-h-screen py-[10px] relative">
       <div className="xs:w-[95%] lg:w-[80%]  py-[70px] h-auto mx-auto ">
         {loading ? (
-          <div className="mt-20 grid place-items-center h-full">
+          <div className="mt-10 grid place-items-center h-full">
             <svg
               height={70}
               width={70}
@@ -38,35 +39,35 @@ const FindAnimals = () => {
             </svg>
           </div>
         ) : (
-          <div className="grid xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 place-items-center h-full w-full items-center justify-center gap-8">
-            {pets?.map((item) => {
-              if (
-                item?.species?.toLowerCase() === search ||
-                item?.name?.toLowerCase() === search ||
-                item?.breeds?.primary?.toLowerCase() === search ||
-                item?.type?.toLowerCase() === search ||
-                item?.contact?.address?.city?.toLowerCase() === search ||
-                item?.contact?.address?.country?.toLowerCase() === search ||
-                item?.contact?.address?.state?.toLowerCase() === search
-              ) {
-                return (
-                  <div key={item?.id} className="">
-                    <Card2
-                      shadow="shadow"
-                      breed={item?.breeds?.primary}
-                      location={item?.contact?.address?.country}
-                      text={item["name"]}
-                      img={
-                        item?.photos?.[0]?.small
-                          ? item?.photos?.[0]?.small
-                          : img
-                      }
-                      path={`/petDetail/${item?.id}`}
-                    />
-                  </div>
-                );
-              }
-            })}
+          <div className="grid xs:grid-cols-1 sm:grid-cols-2  xl:grid-cols-3 place-items-center h-full w-full items-center justify-center gap-8">
+            {!pets || pets.length === 0 ? (
+              <p>No Result Found...Try Filtering Your Query</p>
+            ) : (
+              pets?.map((item) => {
+                {
+                  return (
+                    <div key={item?.id} className="">
+                      <Card2
+                        width="md:w-[340px] sm:w-[310px] xs:w-[300px]"
+                        height="xs:h-[300px] sm:h-[231px]"
+                        shadow="shadow"
+                        primaryBreed={item?.breeds?.primary}
+                        secondaryBreed={item?.breeds?.secondary}
+                        city={item?.contact?.address?.city}
+                        state={item?.contact?.address?.state}
+                        text={item["name"]}
+                        img={
+                          item?.photos?.[0]?.small
+                            ? item?.photos?.[0]?.small
+                            : img
+                        }
+                        path={`/petDetail/${item?.id}`}
+                      />
+                    </div>
+                  );
+                }
+              })
+            )}
           </div>
         )}
         {totalPage > 1 && !loading && (

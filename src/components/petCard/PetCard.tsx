@@ -2,40 +2,58 @@ import React from "react";
 import img2 from "../../assets/images/heart.svg";
 import { Link } from "react-router-dom";
 import { PetCardProps } from "../../types/types";
-import { PetCardShadowConstraints } from "../../constants/StylingConstraints";
 
 const PetCard = ({
   text,
   img,
   path,
   shadow,
-  location,
-  breed,
+  city,
+  state,
+  primaryBreed,
+  secondaryBreed,
+  width,
+  height,
 }: PetCardProps) => {
   return (
     <Link to={path}>
       <div
-        className={`relative ${PetCardShadowConstraints[shadow]} rounded-lg xs:w-[131px] sm:w-56`}
+        className={`relative ${
+          shadow && "shadow-sm"
+        }  sm:min-h-[301px] rounded-lg ${width}`}
       >
-        <img className=" rounded-lg xs:h-32 sm:h-56 w-full" src={img} />
+        <img
+          className={`rounded-lg ${height} w-full  object-cover`}
+          src={img}
+        />
         <div className="absolute top-2 right-2 w-11 h-11 rounded-3xl text-white bg-gray-100 items-center content-center justify-self-end">
           <img src={img2} className="mx-auto" />
         </div>
-
-        <div className="relative bottom-3 bg-white h-16 xs:w-[131px] sm:w-56 rounded-lg text-center content-center">
-          <div className="text-[16px] leading-8 text-primary">
-            {text.slice(0, 20)}..
-          </div>
-          <div className="flex text-center justify-center gap-2">
-            {breed != "" && (
-              <>
-                <div className="text-[16px] leading-8 text-primary">
-                  {breed.slice(0, 12)}..,
+        {/* h-16  */}
+        <div
+          className={`absolute  bottom-[0px] bg-white ${width} min-h-[78px] rounded-lg text-center content-center px-[10px]`}
+        >
+          <div className="text-[16px] leading-8 text-primary">{text}</div>
+          <div className="">
+            {primaryBreed != "" && (
+              <div className="text-start">
+                <div className="text-[16px] leading-8 text-black flex justify-between">
+                  <span>Primary Breed:</span>
+                  <span>{primaryBreed}</span>
                 </div>
-                <div className="text-[16px] leading-8 text-primary">
-                  {location}
+                {secondaryBreed && secondaryBreed != "null" && (
+                  <div className="text-[16px] leading-8 text-black flex justify-between">
+                    <span>Secondary Breed:</span>
+                    <span>{secondaryBreed}</span>
+                  </div>
+                )}
+                <div className="text-[16px] leading-8 text-black flex justify-between">
+                  <span>Location:</span>
+                  <span>
+                    {city}, {state}
+                  </span>
                 </div>
-              </>
+              </div>
             )}
           </div>
         </div>

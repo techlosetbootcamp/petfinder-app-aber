@@ -21,7 +21,7 @@ const ImageSection = () => {
       <img
         src={obj?.pet?.photos?.[0]?.small ? obj?.pet?.photos?.[0]?.small : img}
         alt=""
-        className={`mx-auto min-w-[244px] ${
+        className={`mx-auto xs:w-[244px] md:w-[440px] ${
           isLarge ? "max-w-[80%]" : "max-w-[440px]"
         } h-full`}
       />

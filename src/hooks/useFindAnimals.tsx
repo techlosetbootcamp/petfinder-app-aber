@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { RootState } from "../redux/store";
 
-export const useFindAnimals = (setTotalPages, fetchSearchedPets) => {
+export const useFindAnimals = (setTotalPages, fetchSearchedPets, page) => {
   const location = useLocation();
 
   const searchInput = location.state.searchInput;
-  const search = searchInput.toLowerCase();
-  const query = new URLSearchParams(location.search);
-  const slug = query.get("slug");
+  const queryInput = location.state.queryInput;
+  const search = searchInput;
 
   const pets = useSelector((state: RootState) => state?.pets?.data?.animals);
 
@@ -21,11 +20,12 @@ export const useFindAnimals = (setTotalPages, fetchSearchedPets) => {
 
   useEffect(() => {
     setTotalPages(totalPage);
-    fetchSearchedPets();
-  }, [search]);
+    fetchSearchedPets(search, queryInput);
+  }, [search, queryInput, page]);
 
   return {
     search,
+    queryInput,
     pets,
     totalPage,
   };

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { links } from "../../constants/navLinks";
 import { Link } from "react-router-dom";
 import logo from "/logo.svg";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import { useNav } from "../../hooks/useNav";
-import { useNavContext } from "../../pages/landingPage/LandingPage";
+import { useNavContext } from "../../pages/home/Home";
 
 import { IoClose } from "react-icons/io5";
 
@@ -16,7 +16,7 @@ const MobileNavbar = () => {
   return (
     <div className="overflow-hidden">
       <div
-        className={`lg:hidden overflow-hidden fixed top-0 bg-purple w-full h-full z-10  p-[50px]  flex flex-col  duration-500  ${
+        className={`lg:hidden  z-20 overflow-hidden fixed top-0 bg-purple w-full h-full z-10  p-[50px]  flex flex-col  duration-500  ${
           object?.open ? "left-0" : "-left-[100%]"
         }`}
       >
@@ -34,9 +34,13 @@ const MobileNavbar = () => {
                   <Link
                     to={link.path}
                     className="hover:underline"
-                    onClick={() => {
-                      link.sublinks && setNavClick(!navClick);
-                    }}
+                    onClick={
+                      link.sublinks
+                        ? () => {
+                            setNavClick(!navClick);
+                          }
+                        : object?.toggleMobileNav
+                    }
                   >
                     {link.text}
                   </Link>
@@ -67,6 +71,7 @@ const MobileNavbar = () => {
                             <Link
                               key={item.text}
                               to={item.path}
+                              onClick={object?.toggleMobileNav}
                               className="hover:underline "
                             >
                               {item.text}

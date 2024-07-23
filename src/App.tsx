@@ -10,6 +10,7 @@ import MobileFooter from "./components/mobileFooter/MobileFooter";
 import SubFooter from "./components/subFooter/SubFooter";
 import Category from "./pages/category/Category";
 import FindAnimals from "./pages/findAnimals/FindAnimals";
+import Header from "./components/header/Header";
 
 const router = createBrowserRouter([
   {

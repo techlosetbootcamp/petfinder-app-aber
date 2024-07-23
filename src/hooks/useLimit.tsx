@@ -2,9 +2,17 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 
-export const useLimit = (fetchLimitedPets) => {
+export const useLimit = (fetchLimitedPets, type, location) => {
   const [limit, setLimit] = useState<number>();
   const [totalCount, setTotalCount] = useState<number>();
+  let animalType: string;
+  if (type === "Scales, Fins & Other") {
+    animalType = "scales-fins-other";
+  } else if (type === "Small & Furry") {
+    animalType = "small-furry";
+  } else {
+    animalType = type;
+  }
 
   const pets = useSelector(
     (state: RootState) => state?.pets?.limitedPets?.animals
@@ -47,8 +55,12 @@ export const useLimit = (fetchLimitedPets) => {
   }, [limit]);
 
   useEffect(() => {
-    fetchLimitedPets();
-  }, [limit]);
+    {
+      if (animalType && location) {
+        fetchLimitedPets(animalType, location);
+      }
+    }
+  }, [limit, animalType]);
   return {
     limit,
     pets,

@@ -8,14 +8,11 @@ const TopBar = () => {
         <div className="text-[14px] leading-[22.4px] ">
           <span className="underline text-primary">Learn more</span>
           <span className="text-black">
-            {" "}
-            about how Purina and Petfinder are making a difference together.
+            &nbsp; about how Purina and Petfinder are making a difference
+            together.&emsp; &emsp;
           </span>
         </div>
-        <p className="">
-          {" "}
-          <span className="no-underline"></span>{" "}
-        </p>
+
         <img src={img} alt="" className="h-[12px] w-[12px] sm:mx-[15px]" />
       </div>
     </div>

@@ -51,9 +51,9 @@ export const usePet = () => {
       });
   };
 
-  const fetchSearchedPets = () => {
+  const fetchSearchedPets = (search, queryInput) => {
     setLoading(true);
-    dispatch(searchPets(""))
+    dispatch(searchPets({ page, search, queryInput }))
       .then(() => {
         setLoading(false);
       })
@@ -62,9 +62,9 @@ export const usePet = () => {
       });
   };
 
-  const fetchLimitedPets = () => {
+  const fetchLimitedPets = (type, location) => {
     setLoading(true);
-    dispatch(getLimitedPets())
+    dispatch(getLimitedPets({ type, location }))
       .then(() => {
         setLoading(false);
       })

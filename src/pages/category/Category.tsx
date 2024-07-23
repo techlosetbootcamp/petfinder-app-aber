@@ -24,7 +24,7 @@ const Category = () => {
       <div className="bg-gray-200 relative  w-full py-[50px] text-center min-h-[660px] max-h-auto mx-auto">
         <div className="xs:w-[95%] lg:w-[80%] mx-auto">
           <h1 className="text-primary text-[30px] py-[10px]">
-            {slug} Categories
+            {slug?.toUpperCase()} CATEGORIES
           </h1>
 
           {loading ? (
@@ -39,15 +39,19 @@ const Category = () => {
               </svg>
             </div>
           ) : (
-            <div className="grid xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 place-items-center h-full w-full items-center justify-center gap-8">
+            <div className="grid xs:grid-cols-1 sm:grid-cols-2  xl:grid-cols-3 place-items-center h-full w-full items-center justify-center gap-8">
               {pets?.map((item) => {
                 if (item["type"] === slugName) {
                   return (
                     <div key={item?.id} className="">
                       <Card2
-                        breed={`${item?.breeds?.primary}`}
-                        location={item?.contact?.address?.country}
+                        primaryBreed={`${item?.breeds?.primary}`}
+                        secondaryBreed={`${item?.breeds?.secondary}`}
+                        city={item?.contact?.address?.city}
+                        state={item?.contact?.address?.state}
                         text={item["name"]}
+                        width="md:w-[340px] sm:w-[310px] xs:w-[300px]"
+                        height="xs:h-[300px] sm:h-[231px]"
                         img={
                           item?.photos?.[0]?.small
                             ? item?.photos?.[0]?.small

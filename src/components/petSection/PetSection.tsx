@@ -7,10 +7,16 @@ import { usePet } from "../../hooks/usePet";
 import { ImSpinner9 } from "react-icons/im";
 
 import { useLimit } from "../../hooks/useLimit";
+import { usePetDetailContext } from "../../pages/petDetail/PetDetail";
 
 const PetSection = ({ pageNumber, heading }) => {
+  const obj = usePetDetailContext();
   const { fetchLimitedPets, loading } = usePet();
-  const { pets, animalCount, limit } = useLimit(fetchLimitedPets);
+  const { pets, animalCount, limit } = useLimit(
+    fetchLimitedPets,
+    obj?.pet?.type,
+    obj?.pet?.contact.address?.state
+  );
 
   return (
     <div className="text-center min-w-[300px] max-w-[1220px] mb-[50px] mx-auto">
@@ -35,9 +41,13 @@ const PetSection = ({ pageNumber, heading }) => {
                   return (
                     <Card2
                       key={i}
-                      breed=""
-                      location=""
+                      primaryBreed=""
+                      secondaryBreed={""}
+                      state=""
+                      city=""
                       shadow="shadow"
+                      width="sm:w-[231px] xs:w-[131px]"
+                      height="xs:h-[227.5px] sm:h-[231px]"
                       img={
                         item?.photos?.[0]?.small
                           ? item?.photos?.[0]?.small
@@ -54,9 +64,13 @@ const PetSection = ({ pageNumber, heading }) => {
                   return (
                     <Card2
                       key={i}
-                      breed=""
-                      location=""
+                      primaryBreed=""
+                      secondaryBreed={""}
+                      city=""
+                      state=""
                       shadow="shadow"
+                      width="sm:w-[231px] xs:w-[131px]"
+                      height="xs:h-[227.5px] sm:h-[231px]"
                       img={
                         item?.photos?.[0]?.small
                           ? item?.photos?.[0]?.small
@@ -69,7 +83,7 @@ const PetSection = ({ pageNumber, heading }) => {
                 }
               })}
 
-          <div className="bg-primary xs:w-[131px] rounded-[10px] sm:w-56 flex flex-col h-full items-center justify-between">
+          <div className="bg-primary h-full xs:w-[131px] rounded-[10px] sm:w-56 flex flex-col items-center justify-between">
             <div className=" flex flex-col self-center items-center justify-center xs:h-32 sm:h-56 gap-[20px] w-full py-[5px]">
               <img src={img2} alt="" className="" />
               {animalCount && limit && (
