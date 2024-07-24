@@ -55,12 +55,8 @@ export const useLimit = (fetchLimitedPets, type, location) => {
   }, [limit]);
 
   useEffect(() => {
-    {
-      if (animalType && location) {
-        fetchLimitedPets(animalType, location);
-      }
-    }
-  }, [limit, animalType]);
+    fetchLimitedPets(animalType, location);
+  }, [limit, animalType, location]);
   return {
     limit,
     pets,

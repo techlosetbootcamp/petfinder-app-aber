@@ -57,19 +57,17 @@ export const getPetById = createAsyncThunk<
 export const getLimitedPets = createAsyncThunk<
   PetsResponse,
   FetchLimitedPetsByTypesArgs
->("pets/fetchByLimit", async (type, location) => {
-  if (type) {
-    try {
-      await addAuthorizationHeader();
-      const response = await axiosInstance.get(
-        type
-          ? `/animals?type=${type}&location=${location}`
-          : `/animals?status=adoptable`
-      );
-      return response?.data;
-    } catch (error) {
-      console.log(error);
-    }
+>("pets/fetchByLimit", async ({ type, location }) => {
+  try {
+    await addAuthorizationHeader();
+    const response = await axiosInstance.get(
+      type && location
+        ? `/animals?type=${type}&location=${location}`
+        : `/animals?status=adoptable`
+    );
+    return response?.data;
+  } catch (error) {
+    console.log(error);
   }
 });
 
