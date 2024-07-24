@@ -15,7 +15,8 @@ const PetSection = ({ pageNumber, heading }) => {
   const { pets, animalCount, limit } = useLimit(
     fetchLimitedPets,
     obj?.pet?.type,
-    obj?.pet?.contact.address?.state
+    obj?.pet?.contact.address?.state,
+    obj?.pet?.id
   );
 
   return (
@@ -23,7 +24,7 @@ const PetSection = ({ pageNumber, heading }) => {
       <p className="text-3xl text-primary mb-6">{heading}</p>
 
       {loading ? (
-        <div className="mt-20 grid place-items-center min-h-96">
+        <div className="mt-20 grid place-items-center min-h-screen">
           <svg
             height={70}
             width={70}

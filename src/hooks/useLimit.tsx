@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 
-export const useLimit = (fetchLimitedPets, type, location) => {
+export const useLimit = (fetchLimitedPets, type, location,animalId) => {
   const [limit, setLimit] = useState<number>();
   const [totalCount, setTotalCount] = useState<number>();
   let animalType: string;
@@ -56,7 +56,7 @@ export const useLimit = (fetchLimitedPets, type, location) => {
 
   useEffect(() => {
     fetchLimitedPets(animalType, location);
-  }, [limit, animalType, location]);
+  }, [limit, animalType, location,animalId]);
   return {
     limit,
     pets,

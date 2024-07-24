@@ -17,11 +17,12 @@ const PetDetail = () => {
   return (
     <PetDetailContext.Provider value={{ pet }}>
       {loading ? (
-        <div className="mt-20 grid place-items-center min-h-96">
+        <div className="mt-20 grid  min-h-screen">
           <svg
+        
             height={70}
             width={70}
-            className="animate-spin mx-auto"
+            className="animate-spin mt-20 mx-auto"
             viewBox="0 0 70 70"
           >
             <ImSpinner9 size={70} />
