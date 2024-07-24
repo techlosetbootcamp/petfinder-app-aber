@@ -19,6 +19,7 @@ const PetSection = ({ pageNumber, heading }) => {
     obj?.pet?.id
   );
 
+  console.log(obj)
   return (
     <div className="text-center min-w-[300px] max-w-[1220px] mb-[50px] mx-auto">
       <p className="text-3xl text-primary mb-6">{heading}</p>
@@ -87,7 +88,7 @@ const PetSection = ({ pageNumber, heading }) => {
           <div className="bg-primary h-full xs:w-[131px] rounded-[10px] sm:w-56 flex flex-col items-center justify-between">
             <div className=" flex flex-col self-center items-center justify-center xs:h-32 sm:h-56 gap-[20px] w-full py-[5px]">
               <img src={img2} alt="" className="" />
-              {animalCount && limit && !obj && (
+              {!obj && animalCount && limit &&(
                 <p className="xs:text-[8px] sm:text-[14px] leading-[19.6px] text-white">
                   {animalCount - limit} more pets available on Petfinder
                 </p>

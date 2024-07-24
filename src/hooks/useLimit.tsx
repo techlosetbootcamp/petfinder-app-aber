@@ -14,6 +14,7 @@ export const useLimit = (fetchLimitedPets, type, location,animalId) => {
     animalType = type;
   }
 
+  console.log(animalType,location)
   const pets = useSelector(
     (state: RootState) => state?.pets?.limitedPets?.animals
   );
