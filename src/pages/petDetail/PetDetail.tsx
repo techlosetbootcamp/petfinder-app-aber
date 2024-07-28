@@ -35,7 +35,7 @@ const PetDetail = () => {
           <PetInquirySection />
           <AdoptionStories />
           <PetSection
-            pageNumber={5}
+            pageNumber={2}
             heading={`More ${pet?.type + "s"} from ${
               pet?.contact?.address?.state
             } Animals In Need`}

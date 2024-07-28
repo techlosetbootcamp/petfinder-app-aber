@@ -9,6 +9,7 @@ import { useNav } from "../../hooks/useNav";
 const NavContext = createContext<NavContextType | null>(null);
 const Home = () => {
   const { open, toggleMobileNav } = useNav();
+
   return (
     <div>
       <TopBar />

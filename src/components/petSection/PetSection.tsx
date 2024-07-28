@@ -19,7 +19,7 @@ const PetSection = ({ pageNumber, heading }) => {
     obj?.pet?.id
   );
 
-  console.log(obj)
+
   return (
     <div className="text-center min-w-[300px] max-w-[1220px] mb-[50px] mx-auto">
       <p className="text-3xl text-primary mb-6">{heading}</p>
