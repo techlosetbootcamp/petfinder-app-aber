@@ -29,9 +29,9 @@ const PetCard = ({
         <div className="absolute top-2 right-2 w-11 h-11 rounded-3xl text-white bg-gray-100 items-center content-center justify-self-end">
           <img src={img2} className="mx-auto" />
         </div>
-        {/* h-16  */}
+
         <div
-          className={`absolute  bottom-[0px] bg-white ${width} min-h-[78px] rounded-lg text-center content-center px-[10px]`}
+          className={`absolute   bottom-[0px] bg-white ${width} min-h-[78px] rounded-lg text-center content-center px-[10px]`}
         >
           <div className="text-[16px] leading-8 text-primary">{text}</div>
           <div className="">

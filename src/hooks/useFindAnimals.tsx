@@ -6,9 +6,9 @@ import { RootState } from "../redux/store";
 export const useFindAnimals = (setTotalPages, fetchSearchedPets, page) => {
   const location = useLocation();
 
-  const searchInput = location.state.searchInput;
-  const queryInput = location.state.queryInput;
-  const search = searchInput;
+  const searchInput = location?.state?.searchInput ?? "";
+  const queryInput = location?.state?.queryInput;
+  const search = searchInput ?? "";
 
   const pets = useSelector((state: RootState) => state?.pets?.data?.animals);
 

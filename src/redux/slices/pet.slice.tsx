@@ -79,7 +79,7 @@ export const searchPets = createAsyncThunk<
     await addAuthorizationHeader();
 
     const response = await axiosInstance.get(
-      `/animals?${queryInput}=${search}&limit=100&page=${page}`
+      `/animals?${queryInput}=${search}&page=${page}`
     );
     return response?.data;
   } catch (error) {

@@ -5,7 +5,7 @@ import primaryHeart from "../../assets/images/purpleHeart.svg";
 import downArrow from "../../assets/images/downArrow.svg";
 import { IoMenu } from "react-icons/io5";
 import { useNavContext } from "../../pages/home/Home";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 
 const Header = () => {
@@ -13,37 +13,58 @@ const Header = () => {
   const location = useLocation();
 
   return (
-    <div className="h-[70px] w-full ">
+    
+    <div className="max-h-[70px] z-50 bg-white sticky  w-full">
       <div className="box-border min-w-[200px] max-w-[1220px] mx-auto md:px-2px xs:px-[15px] flex justify-center">
         <div className="xs:w-full lg:w-[935px] flex md:gap-[50px] xs:gap-[8px] xs:pr-[4px]">
-          <div className="">
+          <Link to={"/"}>
             <img src="/logo.svg" alt="" className="h-[70px]" />
-          </div>
+          </Link>
           <div className="flex gap-[50px] w-full lg:justify-normal xs:justify-center">
             <div
-              className={`xs:flex md:gap-[13.8px] xs:gap-[2px] md:py-[23.8px] xs:py-[22px] ${
-                location.pathname === "/"
-                  ? "text-primary"
-                  : "text-black xs:hidden lg:flex"
+              onClick={() => object?.toggleDesktopNav("allAboutPets")}
+              className={`lg:gap-[13.8px] cursor-pointer lg:flex lg:py-[23.8px] xs:hidden ${
+                object?.hideNav && object.clickedElement === "allAboutPets"
+                  ? "text-black"
+                  : "text-primary"
               }`}
             >
               <p className={`text-[14px] leading-[22.4px] `}>ALL ABOUT PETS</p>
               <img
-                src={location.pathname === "/" ? img : downArrow}
+                src={
+                  object?.hideNav && object.clickedElement === "allAboutPets"
+                    ? downArrow
+                    : img
+                }
                 alt=""
                 className="h-[22.39px]"
               />
             </div>
 
             <div
-              className={`flex h-full md:gap-[13.8px] xs:gap-[2px] md:py-[23.8px] xs:py-[22px] ${
+              onClick={() => object?.toggleDesktopNav("findAPet")}
+              className={`lg:flex h-full md:gap-[13.8px] cursor-pointer   md:py-[23.8px] xs:hidden ${
                 location.pathname === "/" && "hidden"
               }`}
             >
-              <p className="text-[14px] leading-[22.4px] text-black">
+              <p
+                className={`text-[14px] leading-[22.4px] ${
+                  object?.hideNav && object?.clickedElement === "findAPet"
+                    ? "text-black"
+                    : "text-primary"
+                }`}
+              >
                 FIND A PET
               </p>
-              <img src={downArrow} alt="" className="h-[22.39px]" />
+              <img
+                src={
+                  object?.hideNav && object?.clickedElement === "findAPet"
+                    ? downArrow
+                    : img
+                }
+                alt=""
+                className="h-[22.39px]"
+              />
             </div>
           </div>
         </div>
@@ -63,7 +84,7 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="border-l border-300 w-[215px] py-[24.2px] px-[30px] box-border gap-[22px] h-[70px] xs:hidden lg:flex lg:flex-wrap">
+        <div className="border-l border-300 w-[215px] py-[24.2px] px-[30px] box-border lg:gap-[18px] xl:gap-[22px] h-[70px] xs:hidden lg:flex lg:flex-wrap">
           <p className="text-[16px] leading-[25.6px] text-black">Sign Up</p>
           <p className="text-[16px] leading-[25.6px] text-black">Log In</p>
         </div>

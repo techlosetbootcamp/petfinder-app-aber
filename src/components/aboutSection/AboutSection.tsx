@@ -13,7 +13,7 @@ const AboutSection = () => {
       <div className="bg-gray-200 h-48 pt-6 " />
 
       <div className="flex xs:items-center lg:items-start lg:justify-between lg:px-[110px] gap-[20px] lg:flex-row xs:flex-col -mt-40 ">
-        <section className="bg-white w-[806px] h-[504px] p-6 rounded-[10px] shadow-md lg:block xs:hidden">
+        <section className="bg-white w-[806px] min-h-[504px] p-6 rounded-[10px] shadow-md lg:block xs:hidden">
           <p className="text-black text-[40px]">{obj?.pet?.name}</p>
 
           <div className="flex gap-2">

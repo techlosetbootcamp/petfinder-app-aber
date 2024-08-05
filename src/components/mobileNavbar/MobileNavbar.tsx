@@ -16,7 +16,7 @@ const MobileNavbar = () => {
   return (
     <div className="overflow-hidden">
       <div
-        className={`lg:hidden  z-20 overflow-hidden fixed top-0 bg-purple w-full h-full z-10  p-[50px]  flex flex-col  duration-500  ${
+        className={`lg:hidden  z-50 overflow-hidden fixed top-0 bg-purple w-full h-full z-10  p-[50px]  flex flex-col  duration-500  ${
           object?.open ? "left-0" : "-left-[100%]"
         }`}
       >

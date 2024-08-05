@@ -21,7 +21,7 @@ const cardData = [
   {
     img: img2,
     text: "Cats",
-    path: "categories?slug=Cat",
+    path: "/categories?slug=Cat",
   },
   {
     img: img3,
@@ -39,17 +39,18 @@ const SearchSection = () => {
   const { isModalOpen, toggleModal } = useSearch();
 
   return (
-    <section className="relative box-border  mb-[120px]">
-      <div className="relative lg:-mt-14 border-b-[10px] border-primary xs:h-[200px] sm:h-[354px] overflow-hidden">
+    <section className=" box-border ">
+      <div className="relative border-b-[10px] border-primary sm:h-[410px] xs:h-[280px] overflow-hidden">
         <img
           src={bgImage}
           className="brightness-75 w-full sm:h-full xs:h-full bg-center bg-cover"
         />
+
         <div className="flex justify-center self-center left-0 right-0 mx-auto absolute lg:top-[75px] xs:top-[20px]">
           <SearchInput />
         </div>
 
-        <div className="absolute xs:bottom-8 sm:bottom-40 lg:bottom-28 xl:bottom-24 2xl:bottom-28 text-center w-full">
+        <div className="absolute xs:bottom-20 sm:bottom-48 lg:bottom-28 xl:bottom-24 2xl:bottom-28 text-center w-full">
           <p className="font-bold text-white xs:text-[30px] xl:text-[41.84px] xs:leading-[34px] md:leading-[24px] xl:leading-[54px]">
             Find your new best friend
           </p>
@@ -62,7 +63,7 @@ const SearchSection = () => {
       <div
         className={`absolute ${
           isModalOpen ? "block" : "hidden"
-        } flex justify-center z-10 left-0 right-0 mx-auto  xs:-bottom-20 lg:bottom-0`}
+        } flex justify-center z-10 left-0 right-0 mx-auto  xs:-bottom-28 lg:bottom-20`}
       >
         <AnimalModal onClick={toggleModal} />
       </div>
@@ -75,7 +76,7 @@ const SearchSection = () => {
               img={item.img}
               text={item.text}
               path={item.path}
-              onClick={toggleModal}
+              onClick={item.text === "Other Animals" ? toggleModal : () => {}}
               size="medium"
             />
           );

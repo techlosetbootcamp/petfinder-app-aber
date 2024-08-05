@@ -5,13 +5,16 @@ import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import { footerItems, footerLinks } from "../../constants/FooterLinks";
 import Button from "../button/Button";
+import { Link } from "react-router-dom";
 
 const MobileFooter = () => {
   const [heading, setHeading] = useState("");
   return (
     <div className="bg-primary border-2 w-full h-auto lg:hidden">
       <div className="flex flex-col items-center px-[10px]">
-        <img src={logo} alt="" className="mx-auto" />
+        <Link to={"/"}>
+          <img src={logo} alt="" className="mx-auto" />
+        </Link>
 
         <div className="bg-purple text-primary h-fit p-[26px] rounded-lg text-center ">
           <p className="text-[14px] leading-[24px]">

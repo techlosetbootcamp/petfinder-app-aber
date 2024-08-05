@@ -1,13 +1,16 @@
 import React from "react";
 import Button from "../button/Button";
 import { footerItems, footerLinks } from "../../constants/FooterLinks";
+import { Link } from "react-router-dom";
 
 const MainFooter = () => {
   return (
     <div className="w-full bg-primary text-white box-border xs:hidden lg:block lg:px-[20px]">
       <div className="max-w-[1220px] mx-auto">
         <div className="py-[18px]">
-          <img src="/logoWhite.svg" alt="" className="" />
+          <Link to={"/"}>
+            <img src="/logoWhite.svg" alt="" className="" />
+          </Link>
         </div>
 
         <div className="relative flex lg:gap-[15px] xl:gap-[38px]">

@@ -125,11 +125,14 @@ export type FetchLimitedPetsByTypesArgs = {
 
 export type FetchSearchedPetsByTypesArgs = {
   page: number;
-  search: string;
+  search: string | null;
   queryInput: string;
 };
 
 export type NavContextType = {
   open: true | false;
+  hideNav: true | false;
+  clickedElement: string;
   toggleMobileNav: () => void;
+  toggleDesktopNav: (element: string) => void;
 };
