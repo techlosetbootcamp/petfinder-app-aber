@@ -12,7 +12,7 @@ const Skeleton = ({ count, width, details }: SkeletonProps) => {
     .map((_, i) => (
       <div
         key={i}
-        className={`shadow-sm sm:min-h-[301px]  mx-4 relative rounded-md  ${width}`}
+        className={`shadow-sm sm:min-h-[301px] relative rounded-md  ${width}`}
       >
         <img
           className={`rounded-lg animate-pulse xs:h-[300px] sm:h-[231px] w-full  object-cover`}

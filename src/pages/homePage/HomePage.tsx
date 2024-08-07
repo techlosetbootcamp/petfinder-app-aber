@@ -5,7 +5,7 @@ import PetSection from "../../components/petSection/PetSection";
 import SearchSection from "../../components/searchSection/SearchSection";
 import FooterGroup from "../../components/footerGroup/FooterGroup";
 
-const LandingPage = () => {
+const HomePage = () => {
   return (
     <div className="overflow-hidden">
       <SearchSection />
@@ -18,4 +18,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default HomePage;

@@ -62,8 +62,8 @@ export const getLimitedPets = createAsyncThunk<
     await addAuthorizationHeader();
     const response = await axiosInstance.get(
       type && location
-        ? `/animals?type=${type}&location=${location}`
-        : `/animals?status=adoptable`
+        ? `/animals?type=${type}&location=${location}&limit=100`
+        : `/animals?status=adoptable&limit=100`
     );
     return response?.data;
   } catch (error) {

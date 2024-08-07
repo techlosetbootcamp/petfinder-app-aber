@@ -1,16 +1,11 @@
 import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import "./App.css";
-import LandingPage from "./pages/landingPage/LandingPage";
+import HomePage from "./pages/homePage/HomePage";
 import PetDetail from "./pages/petDetail/PetDetail";
 import Home from "./pages/home/Home";
-import Footer from "./components/footer/Footer";
-import MainFooter from "./components/mainFooter/MainFooter";
-import MobileFooter from "./components/mobileFooter/MobileFooter";
-import SubFooter from "./components/subFooter/SubFooter";
+
 import Category from "./pages/category/Category";
 import FindAnimals from "./pages/findAnimals/FindAnimals";
-import Header from "./components/header/Header";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <LandingPage />,
+        element: <HomePage />,
       },
       {
         path: "/categories",

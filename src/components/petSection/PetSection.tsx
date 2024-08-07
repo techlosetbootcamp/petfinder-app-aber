@@ -1,14 +1,11 @@
 import React from "react";
-import PetCard from "../petCard/PetCard";
-import img from "../../assets/images/petCommon.svg";
-import img2 from "../../assets/images/icon1.svg";
+import img from "../../assets/images/icon1.svg";
 import { usePet } from "../../hooks/usePet";
-
-import { ImSpinner9 } from "react-icons/im";
 
 import { useLimit } from "../../hooks/useLimit";
 import { usePetDetailContext } from "../../pages/petDetail/PetDetail";
 import Skeleton from "../skeleton/Skeleton";
+import Carousal from "../carousal/Carousal";
 
 const PetSection = ({ pageNumber, heading }) => {
   const obj = usePetDetailContext();
@@ -21,69 +18,24 @@ const PetSection = ({ pageNumber, heading }) => {
   );
 
   return (
-    <div className="text-center  min-w-[300px] max-w-[1220px] pb-[50px] mx-auto">
+    <div className="text-center  min-w-[300px] max-w-[1220px] h-full pb-[50px] mx-auto">
       <p className="text-3xl text-primary mb-6">{heading}</p>
-      <div className="grid py-2 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-rows-1 gap-[16px] justify-center place-items-center mx-auto overflow-hidden">
+      <div className="grid gap-[16px] xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  xl:grid-cols-5 h-full place-items-center">
         {loading ? (
           <Skeleton
-            count={limit ?? 1}
+            count={limit ?? 0}
             details={false}
-            width="sm:w-[231px] xs:w-[131px]"
+            width="sm:w-[231px] xs:w-[131px] "
           />
         ) : (
-          <>
-            {pageNumber == 2
-              ? pets?.slice(0, limit)?.map((item, i) => {
-                  if (item?.status === "adoptable") {
-                    return (
-                      <PetCard
-                        key={i}
-                        primaryBreed=""
-                        secondaryBreed={""}
-                        state=""
-                        city=""
-                        shadow="shadow"
-                        width="sm:w-[231px] xs:w-[131px]"
-                        height="xs:h-[227.5px] sm:h-[231px]"
-                        img={
-                          item?.photos?.[0]?.small
-                            ? item?.photos?.[0]?.small
-                            : img
-                        }
-                        text={item.name}
-                        path={`/petDetail/${item?.id}`}
-                      />
-                    );
-                  }
-                })
-              : pets?.slice(10, limit && 10 + limit)?.map((item, i) => {
-                  if (item?.status === "adoptable") {
-                    return (
-                      <PetCard
-                        key={i}
-                        primaryBreed=""
-                        secondaryBreed={""}
-                        city=""
-                        state=""
-                        shadow="shadow"
-                        width="sm:w-[231px] xs:w-[131px]"
-                        height="xs:h-[227.5px] sm:h-[231px]"
-                        img={
-                          item?.photos?.[0]?.small
-                            ? item?.photos?.[0]?.small
-                            : img
-                        }
-                        text={item.name}
-                        path={`/petDetail/${item?.id}`}
-                      />
-                    );
-                  }
-                })}
-          </>
+          <div className="h-full w-full gap-[16px] xs:col-span-1 md:col-span-2 lg:col-span-3 xl:col-span-4">
+            <Carousal pageNumber={pageNumber} />
+          </div>
         )}
-        <div className="bg-primary h-full xs:w-[131px] rounded-[10px] sm:w-56 flex flex-col items-center justify-between">
+
+        <div className="bg-primary  h-full xs:w-[131px] rounded-[10px] sm:w-56 flex flex-col items-center justify-between">
           <div className=" flex flex-col self-center items-center justify-center xs:h-32 sm:h-56 gap-[20px] w-full py-[5px]">
-            <img src={img2} alt="" className="" />
+            <img src={img} alt="" className="" />
             {!obj && animalCount && limit && (
               <p className="xs:text-[8px] sm:text-[14px] leading-[19.6px] text-white">
                 {animalCount - limit} more pets available on Petfinder
@@ -91,7 +43,7 @@ const PetSection = ({ pageNumber, heading }) => {
             )}
           </div>
 
-          <div className="h-[56px] border-t border-darkBlue w-full flex items-center justify-center">
+          <div className="h-[56px]  border-t border-darkBlue w-full flex items-center justify-center">
             <p className="text-[14px] leading-[19.6px] text-white uppercase ">
               Meet them
             </p>

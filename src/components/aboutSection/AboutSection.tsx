@@ -103,8 +103,8 @@ const AboutSection = () => {
 
         <section className="xs:w-full lg:w-fit">
           <div className="xs:px-[10px]">
-            <div className="bg-primary min-w-[300px] max-w-[393px] h-[283px] rounded-[10px] pt-5 flex flex-col justify-between space-around items-center mx-auto">
-              <p className="text-[20] text-white">
+            <div className="bg-primary  min-w-[300px] max-w-[393px] h-[283px] rounded-[10px] pt-5 flex flex-col justify-between space-around items-center mx-auto">
+              <p className="text-[20] text-center text-white px-[42px]">
                 Considering {obj?.pet?.name} for adoption?
               </p>
 
@@ -127,7 +127,7 @@ const AboutSection = () => {
                 />
               </div>
 
-              <div className="w-full flex justify-between border-t border-black">
+              <div className="w-full flex justify-between border-t border-black mb-[7px] rounded-[10px]">
                 <div className="w-[50%] border-r border-black">
                   <Button
                     text={"SPONSOR"}
