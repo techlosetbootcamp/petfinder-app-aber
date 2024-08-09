@@ -1,18 +1,16 @@
 import axios from "axios";
 
+const clientIdKey = import.meta.env.VITE_CLIENT_ID;
+const clientSecretKey = import.meta.env.VITE_CLIENT_SECRET;
+const authURL = import.meta.env.VITE_AUTH_URL;
+const baseURL = import.meta.env.VITE_BASE_URL;
 const fetchToken = async () => {
-  const clientIdKey = import.meta.env.VITE_CLIENT_ID;
-  const clientSecretKey = import.meta.env.VITE_CLIENT_SECRET;
-
   try {
-    const response = await axios.post(
-      "https://api.petfinder.com/v2/oauth2/token",
-      {
-        grant_type: "client_credentials",
-        client_id: clientIdKey,
-        client_secret: clientSecretKey,
-      }
-    );
+    const response = await axios.post(authURL, {
+      grant_type: "client_credentials",
+      client_id: clientIdKey,
+      client_secret: clientSecretKey,
+    });
 
     return response.data.access_token;
   } catch (error) {
@@ -21,7 +19,7 @@ const fetchToken = async () => {
 };
 
 export const axiosInstance = axios.create({
-  baseURL: "https://api.petfinder.com/v2",
+  baseURL: baseURL,
   timeout: 20000,
   headers: {
     Accept: "application/json",

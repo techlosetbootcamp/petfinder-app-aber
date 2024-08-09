@@ -4,7 +4,6 @@ import { RootState } from "../redux/store";
 
 export const useLimit = (fetchLimitedPets, type, location, animalId) => {
   const [limit, setLimit] = useState<number>();
-  const [totalCount, setTotalCount] = useState<number>();
   let animalType: string;
   if (type === "Scales, Fins & Other") {
     animalType = "scales-fins-other";
@@ -34,9 +33,6 @@ export const useLimit = (fetchLimitedPets, type, location, animalId) => {
       newLimit = 3;
     } else {
       newLimit = 4;
-    }
-    if (animalCount && limit) {
-      setTotalCount(animalCount - limit);
     }
 
     if (newLimit !== limit) {
