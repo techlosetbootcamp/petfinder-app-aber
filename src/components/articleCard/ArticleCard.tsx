@@ -11,16 +11,22 @@ const ArticleCard = ({
   img,
 }: ArticleCardProps) => {
   return (
-    <div className={`${ArticleCardSizeConstraints[size]}`}>
+    <div className={`${ArticleCardSizeConstraints[size]} relative`}>
       <img
         src={img}
         alt=""
         className="w-full h-[260px] rounded-[8px] object-cover object-center"
       />
 
-      <div className="relative bottom-3 bg-white xs:[10px] lg:px-[43px] py-[28px] h-[260px] rounded-lg text-center content-center">
+      <div className="h-[18px] bg-white rounded-t-[157px] top-[231px] w-full absolute" />
+
+      <div
+        className={`relative ${
+          size === "large" ? "pt-[70px]" : "pt-[15px]"
+        }  min-h-[260px]  w-full bottom-3 bg-white text-center rounded-b-[10px] `}
+      >
         {size == "large" && (
-          <div className=" w-full h-[100px] left-0 content-center absolute -top-12  block">
+          <div className=" w-full  h-[100px] left-0 content-center absolute -top-12  block">
             <img
               src={img}
               alt=""
@@ -29,15 +35,16 @@ const ArticleCard = ({
           </div>
         )}
 
-        <div className="pt-5  h-full ">
-          <div className="flex flex-col justify-evenly h-[80%]">
-            <p className="text-[20px] leading-8 text-black ">{heading}</p>
-            <p className="text-[16px] leading-8 text-black">{text}</p>
-          </div>
+        <p className="text-[20px] leading-8 text-black h-[48px]">{heading}</p>
 
-          <div className=" h-[55px] absolute bottom-0 w-full border-t left-0 right-0 mx-auto content-center ">
-            <p className="text-sm text-primary">{btnText}</p>
-          </div>
+        <p className="text-[16px] leading-8 text-black  min-h-[62.39px] pb-[25px]">
+          {text}
+        </p>
+
+        <div className=" h-[55px] w-full border-t content-center absolute bottom-0 ">
+          <p className="text-sm text-primary w-full  h-full flex items-center justify-center">
+            {btnText}
+          </p>
         </div>
       </div>
     </div>

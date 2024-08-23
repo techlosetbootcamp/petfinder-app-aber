@@ -50,11 +50,18 @@ const PetInquirySection = () => {
           <p className="text-[16px] text-white leading-[25.6px]">
             You may call them with your inquiry at:{" "}
           </p>
-          <p className="text-[14px] text-white leading-[22.4px] mt-1">
+          <p className="text-[14px] text-white leading-[22.4px]">
             {obj?.pet?.contact?.phone}
           </p>
         </div>
-        <div className="flex gap-14"></div>
+        <div className="flex gap-[14px] xl:flex-row lg:flex-col">
+          <p className="text-[16px] text-white leading-[25.6px]">
+          You may also find more information about the organization on their homepage: 
+          </p>
+          <p className="text-[14px] text-white leading-[22.4px]">
+          https://www.petfinder.com/member/us/gu/mangilao/guam-animals-in-need-gu01/
+          </p>
+        </div>
       </div>
     </div>
   );

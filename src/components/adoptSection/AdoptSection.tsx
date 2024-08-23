@@ -6,12 +6,12 @@ import QueryCard from "../queryCard/QueryCard";
 
 const AdoptSection = () => {
   return (
-    <div className="text-center min-w-[300px] max-w-[1220px] py-[58px] mx-auto">
-      <p className=" text-black text-[38px] leading-[45px] uppercase">
+    <div className="text-center min-w-[300px] pt-[60px] pb-[80px] mt-[50px]  mx-auto">
+      <p className=" text-black mb-[79.5px] text-[38px] leading-[45px] uppercase">
         Planning to adopt a Pet?
       </p>
 
-      <div className="flex flex-wrap justify-center gap-3 pt-[80px] pb-[32px]">
+      <div className="flex flex-wrap justify-center">
         <QueryCard
           img={img1}
           heading="Checklist for new adopters"

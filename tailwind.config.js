@@ -42,8 +42,10 @@ export default {
         100: "#FFFFFFBF",
         200: "#EFEEF1",
         300: "#D2D1D3",
+        400: "#5C5560"
       }
 
+      
     }
   },
   plugins: [],

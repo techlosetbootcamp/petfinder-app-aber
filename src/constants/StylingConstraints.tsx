@@ -1,6 +1,6 @@
 export const ButtonWidthConstraints = {
   medium: "w-[200px]",
-  full: "w-full",
+  full: "w-full h-full",
   fit: "w-fit px-[5px]",
 };
 

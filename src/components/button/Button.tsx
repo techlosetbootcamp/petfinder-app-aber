@@ -17,7 +17,7 @@ const Button = ({
     <input
       type="button"
       value={text}
-      className={`self-center ${ButtonWidthConstraints[width]} ${ButtonRadiusConstraints[radius]}  h-[45px] bg-${bgColor} text-[14px] border-2 border-${border} text-${textColor} `}
+      className={`self-center ${ButtonWidthConstraints[width]} ${ButtonRadiusConstraints[radius]}  h-[45px] bg-${bgColor} text-[14px] leading-[19.6px] border-2 border-${border} text-${textColor} `}
     />
   );
 };

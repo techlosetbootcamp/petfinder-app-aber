@@ -18,9 +18,11 @@ const PetSection = ({ pageNumber, heading }) => {
   );
 
   return (
-    <div className="text-center  min-w-[300px] max-w-[1220px] h-full pb-[50px] mx-auto">
-      <p className="text-3xl text-primary mb-6">{heading}</p>
-      <div className="grid gap-[16px] xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  xl:grid-cols-5 h-full place-items-center">
+    <div className="text-center  min-w-[300px] max-w-[1220px] h-full mx-auto flex flex-col gap-[24px]">
+      <p className="text-[30px] leading-[36px]  font-[400] text-primary">
+        {heading}
+      </p>
+      <div className="grid gap-[16px] xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  xl:grid-cols-5  place-items-center">
         {loading ? (
           <Skeleton
             count={limit ?? 0}
@@ -34,7 +36,7 @@ const PetSection = ({ pageNumber, heading }) => {
         )}
 
         <div className="bg-primary  h-full xs:w-[131px] rounded-[10px] sm:w-56 flex flex-col items-center justify-between">
-          <div className=" flex flex-col self-center items-center justify-center xs:h-32 sm:h-56 gap-[20px] w-full py-[5px]">
+          <div className=" flex flex-col self-center items-center justify-center xs:h-32 sm:h-56 gap-[20px] w-full ">
             <img src={img} alt="" className="" />
             {!obj && animalCount && limit && (
               <p className="xs:text-[8px] sm:text-[14px] leading-[19.6px] text-white">

@@ -5,7 +5,7 @@ import img2 from "../../assets/images/dog.svg";
 
 const AdoptionArticle = () => {
   return (
-    <div className="max-w-[1220px] min-w-[300px] py-10 flex flex-wrap justify-center gap-3 mx-auto">
+    <div className="min-w-[300px] mt-[50px] mb-[190px] flex flex-wrap justify-center gap-[20px] mx-auto">
       <ArticleCard
         img={img2}
         heading="Dog Adoption Articles"

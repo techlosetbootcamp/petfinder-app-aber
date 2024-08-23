@@ -8,7 +8,7 @@ const ImageSection = () => {
   const [isLarge, setIsLarge] = useState<boolean>(false);
   const sizeConstraints = {
     small: "relative lg:h-[486px] xs:h-[325px]",
-    large: "bottom-0 h-screen z-10 fixed overflow-hidden",
+    large: "bottom-0 h-screen z-50 fixed overflow-hidden",
   };
   const obj = usePetDetailContext();
 

@@ -7,17 +7,17 @@ import icon5 from "../../assets/images/pinterest.svg";
 
 const SubFooter = () => {
   return (
-    <div className="xs:h-[183px] lg:h-[70px] bg-darkBlue content-center text-white text-[12px]  ">
-      <div className="min-w-[300px] max-w-[1320px] flex xs:flex-col-reverse lg:flex-row  text-center items-center  mx-auto lg:px-[50px] lg:justify-between">
-        <div className="flex xs:flex-col lg:flex-row max-w-[970px] gap-[15px] ">
-          <p>©2023 Petfinder.com</p>
-          <p>
+    <div className=" lg:h-[70px] bg-darkBlue content-center text-white font-[400] xs:leading-[20.8px] lg:leading-[19.2px] xs:text-[13px] lg:text-[12px] xs:pb-[32px] xs:pt-[30px] lg:py-0">
+      <div className="min-w-[300px] max-w-[1320px] h-full flex xs:flex-col-reverse lg:flex-row  text-center items-center mx-auto lg:px-[50px] lg:justify-between">
+        <div className="flex xs:flex-col lg:flex-row lg:w-[970px] gap-[9.8px]">
+          <p className="xs:mb-[10px] xs:mt-[30px] lg:mb-0 lg:mt-0">©2023 Petfinder.com</p>
+          <p className="xs:px-[17px] lg:px-0 ">
             All trademarks are owned by Société des Produits Nestlé S.A., or
             used with permission.
           </p>
         </div>
 
-        <div className="w-[230px] flex gap-[32px] lg:py-0 xs:py-[10px]">
+        <div className="w-[230px] flex justify-between ">
           <img src={icon1} />
           <img src={icon2} />
           <img src={icon3} />

@@ -82,7 +82,7 @@ const Carousal = ({ pageNumber }: CarousalProps) => {
     ],
   };
   return (
-    <div className="slider-container mx-auto w-full h-full">
+    <div className="slider-container mx-auto w-full h-full ">
       <Slider {...settings}>
         {pageNumber == 2
           ? pets?.slice(0, 50)?.map((item, i) => {

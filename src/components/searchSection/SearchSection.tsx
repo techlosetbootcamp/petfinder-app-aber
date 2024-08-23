@@ -39,7 +39,7 @@ const SearchSection = () => {
   const { isModalOpen, toggleModal } = useSearch();
 
   return (
-    <section className=" box-border ">
+    <section className="relative box-border mb-[278.6px]">
       <div className="relative border-b-[10px] border-primary sm:h-[410px] xs:h-[280px] overflow-hidden">
         <img
           src={bgImage}
@@ -63,24 +63,26 @@ const SearchSection = () => {
       <div
         className={`absolute ${
           isModalOpen ? "block" : "hidden"
-        } flex justify-center z-10 left-0 right-0 mx-auto  xs:-bottom-28 lg:bottom-20`}
+        } flex justify-center z-10 left-0 right-0 mx-auto xs:-bottom-60 lg:-bottom-20`}
       >
         <AnimalModal onClick={toggleModal} />
       </div>
 
-      <div className="w-fit mx-auto gap-[16px] grid xs:grid-cols-2 lg:grid-cols-4 relative xs:bottom-8 lg:bottom-20 ">
-        {cardData.map((item) => {
-          return (
-            <Card
-              key={item.text}
-              img={item.img}
-              text={item.text}
-              path={item.path}
-              onClick={item.text === "Other Animals" ? toggleModal : () => {}}
-              size="medium"
-            />
-          );
-        })}
+      <div className="absolute xs:-bottom-60  lg:-bottom-20 w-full ">
+        <div className="w-fit mx-auto gap-[16px] grid xs:grid-cols-2 lg:grid-cols-4  ">
+          {cardData.map((item) => {
+            return (
+              <Card
+                key={item.text}
+                img={item.img}
+                text={item.text}
+                path={item.path}
+                onClick={item.text === "Other Animals" ? toggleModal : () => {}}
+                size="medium"
+              />
+            );
+          })}
+        </div>
       </div>
     </section>
   );

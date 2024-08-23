@@ -10,18 +10,18 @@ import { Link } from "react-router-dom";
 const MobileFooter = () => {
   const [heading, setHeading] = useState("");
   return (
-    <div className="bg-primary border-2 w-full h-auto lg:hidden">
-      <div className="flex flex-col items-center px-[10px]">
-        <Link to={"/"}>
+    <div className="bg-primary w-full h-auto lg:hidden">
+      <div className="flex flex-col items-center">
+        <Link to={"/"} className="mt-[40px] mb-[20px]">
           <img src={logo} alt="" className="mx-auto" />
         </Link>
 
-        <div className="bg-purple text-primary h-fit p-[26px] rounded-lg text-center ">
-          <p className="text-[14px] leading-[24px]">
+        <div className="bg-purple w-[312px] flex flex-col gap-[24px] text-primary h-fit p-[23px] rounded-lg text-center ">
+          <p className="text-[14px] leading-[24px] px-[8px]">
             To get the latest on pet adoption and pet care, sign up for the
             Petfinder newsletter.
           </p>
-          <div className="pt-[28px]">
+          <div className="h-[48px] ">
             <Button
               text="SIGN UP"
               bgColor={"primary"}
@@ -33,7 +33,7 @@ const MobileFooter = () => {
           </div>
         </div>
 
-        <div className="py-[40px] w-full">
+        <div className="mt-[46px] mb-[40px] w-full px-[15px] w-full">
           {footerLinks.map((link) => {
             return (
               <div key={link.text} className="">
@@ -43,7 +43,7 @@ const MobileFooter = () => {
                       ? setHeading(link.text)
                       : setHeading("")
                   }
-                  className="px-[20px] border-t border-white  py-[10px] flex justify-between"
+                  className="px-[20px] border-t border-white h-[53px] items-center flex justify-between"
                 >
                   <p className="text-[14px] leading-[22px] text-white uppercase">
                     {link.text}
@@ -79,10 +79,10 @@ const MobileFooter = () => {
           })}
         </div>
 
-        <div className="py-[10px] px-[2px] flex flex-wrap gap-[10px] justify-center text-[10px] text-white">
+        <div className="pb-[42px] px-[17px] flex flex-wrap gap-[10px] justify-center text-[12px] font-[400] leading-[19.2px] text-white">
           {footerItems.map((item, i) => {
             if (item.mobile) {
-              return <p key={i}>{item.text}</p>;
+              return <p className="" key={i}>{item.text}</p>;
             }
           })}
         </div>

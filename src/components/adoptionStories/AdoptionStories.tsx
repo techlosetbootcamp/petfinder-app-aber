@@ -7,9 +7,9 @@ const AdoptionStories = () => {
   const obj = usePetDetailContext();
   return (
     <div className="bg-blue lg:px-[60px] ">
-      <div className=" py-[58px] lg:px-[50px] px-[10px] text-white">
+      <div className=" pt-[58px] pb-[66px] lg:px-[50px] px-[10px] text-white">
         <div className="text-center">
-          <p className="xs:text-[30px] lg:text-[40px] xs:leading-[36px] lg:leading-[48px] py-[8px]">
+          <p className="xs:text-[30px] lg:text-[40px] xs:leading-[36px] lg:leading-[48px] mb-[8px]">
             {obj?.pet?.breeds?.primary} Happy Tails
           </p>
           <p className="text-[16px] leading-[19.2px] underline">
@@ -17,7 +17,7 @@ const AdoptionStories = () => {
           </p>
         </div>
 
-        <div className="flex xs:gap-[20px] lg:gap-[20px] py-[40px] flex-wrap justify-center">
+        <div className="flex xs:gap-[20px] lg:gap-[20px] pt-[40px] flex-wrap justify-center">
           <ArticleCard
             img={img}
             heading="Darlene and Molly"

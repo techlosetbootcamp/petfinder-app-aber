@@ -35,12 +35,14 @@ const PetDetail = () => {
             <AboutSection />
             <PetInquirySection />
             <AdoptionStories />
-            <PetSection
-              pageNumber={2}
-              heading={`More ${pet?.type + "s"} from ${
-                pet?.contact?.address?.state
-              } Animals In Need`}
-            />
+            <div className="mt-[85px] mb-[96px]">
+              <PetSection
+                pageNumber={2}
+                heading={`More ${pet?.type + "s"} from ${
+                  pet?.contact?.address?.state
+                } Animals In Need`}
+              />
+            </div>
           </>
         )}
       </PetDetailContext.Provider>

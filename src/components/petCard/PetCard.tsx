@@ -20,7 +20,7 @@ const PetCard = ({
       <div
         className={`relative ${
           shadow && "shadow-sm"
-        }  sm:min-h-[301px] rounded-lg ${width}`}
+        }  sm:h-[301px] rounded-lg ${width}`}
       >
         <img
           className={`rounded-lg ${height} w-full  object-cover`}
@@ -30,8 +30,11 @@ const PetCard = ({
           <img src={img2} className="mx-auto" />
         </div>
 
+        
+        <div className={`absolute bottom-[69px] ${width} rounded-t-lg  h-[8px] bg-white `}/>
+
         <div
-          className={`absolute   bottom-[0px] bg-white ${width} min-h-[78px] rounded-lg text-center content-center px-[10px]`}
+          className={`absolute bottom-[0px] bg-white ${width} min-h-[70px] text-center content-center px-[10px]`}
         >
           <div className="text-[16px] leading-8 text-primary">{text}</div>
           <div className="">
