@@ -1,6 +1,9 @@
 import React from "react";
 import ArticleCard from "../articleCard/ArticleCard";
 import img from "../../assets/images/petCommon.svg";
+import tailImg1 from "../../assets/images/tailImg1.svg";
+import tailImg2 from "../../assets/images/tailImg2.svg";
+import tailImg3 from "../../assets/images/tailImg3.svg";
 import { usePetDetailContext } from "../../pages/petDetail/PetDetail";
 
 const AdoptionStories = () => {
@@ -19,16 +22,16 @@ const AdoptionStories = () => {
 
         <div className="flex xs:gap-[20px] lg:gap-[20px] pt-[40px] flex-wrap justify-center">
           <ArticleCard
-            img={img}
+            img={tailImg1}
             heading="Darlene and Molly"
             text={`We had lost x2 fur baby's, one about a
-                    month before and had said we were not going to go thru the heartache again. Tha…`}
+                    month before and had said we were not going to go thru the heartache again. Tha...`}
             size={"medium"}
             btnText={"Read More"}
           />
 
           <ArticleCard
-            img={img}
+            img={tailImg2}
             heading="Nina & Zuli"
             text={`she is 16 yrs old`}
             size={"medium"}
@@ -36,11 +39,11 @@ const AdoptionStories = () => {
           />
 
           <ArticleCard
-            img={img}
+            img={tailImg3}
             heading="Frances & Buster"
             text={`I saw Buster on Pet Finder and he fit what I
                    was looking for perfectly - small and fluffy.
-                   He is a senior dog so he is settled, house…`}
+                   He is a senior dog so he is settled, house...`}
             size={"medium"}
             btnText={"Read More"}
           />

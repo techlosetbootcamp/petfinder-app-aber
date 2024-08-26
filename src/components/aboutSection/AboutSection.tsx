@@ -115,7 +115,7 @@ const AboutSection = () => {
           <div className="lg:px-0 xs:px-[15px]">
           <div className="bg-primary w-full rounded-[10px] flex flex-col items-center ">
             <div className="flex flex-col gap-[30px] py-[30px] w-full">
-              <p className="text-[20] h-[32px] px-[42px] text-center text-white">
+              <p className="text-[20] leading-[32px] px-[42px] text-center text-white">
                 Considering {obj?.pet?.name} for adoption?
               </p>
 

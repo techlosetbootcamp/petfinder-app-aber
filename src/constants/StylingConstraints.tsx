@@ -15,5 +15,5 @@ export const PetCardShadowConstraints = {
 
 export const ArticleCardSizeConstraints = {
   large: "lg:w-[600px] xs:w-[300px] h-[515.39px]",
-  medium: "w-[393px] h-[501px]",
+  medium: "w-[393px] md:h-[501px] xs:h-[483px]",
 };

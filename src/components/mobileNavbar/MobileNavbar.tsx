@@ -16,7 +16,7 @@ const MobileNavbar = () => {
   return (
     <div className="overflow-hidden">
       <div
-        className={`lg:hidden  z-50 overflow-hidden fixed top-0 bg-purple w-full h-full z-10  p-[50px]  flex flex-col  duration-500  ${
+        className={`lg:hidden  z-50 overflow-scroll fixed top-0 bg-purple w-full h-full z-10  p-[50px]  flex flex-col  duration-500  ${
           object?.open ? "left-0" : "-left-[100%]"
         }`}
       >
@@ -26,7 +26,7 @@ const MobileNavbar = () => {
         <div className="pb-20">
           <img src={logo} alt="" />
         </div>
-        <div className="flex flex-col  text-primary font-bold gap-4 gap-8">
+        <div className="flex flex-col text-primary font-bold gap-4 gap-8">
           {links.map((link) => {
             return (
               <div key={link.text}>
@@ -44,7 +44,7 @@ const MobileNavbar = () => {
                   >
                     {link.text}
                   </Link>
-                  <div className="flex items-center">
+                  <div className="flex items-center ">
                     {link.sublinks &&
                       (navClick ? (
                         <IoIosArrowUp
@@ -58,29 +58,28 @@ const MobileNavbar = () => {
                         />
                       ))}
                   </div>
-
-                  <>
-                    {link.sublinks && (
-                      <div
-                        className={` text-primary text-[15px] font-[100] absolute px-[60px] rounded-[2px] bottom-24  flex flex-col gap-[10px] ${
-                          navClick ? "block" : "hidden"
-                        } transition-all ease-in-out translate-y-1 duration-700`}
-                      >
-                        {link.sublinks.map((item) => {
-                          return (
-                            <Link
-                              key={item.text}
-                              to={item.path}
-                              onClick={object?.toggleMobileNav}
-                              className="hover:underline "
-                            >
-                              {item.text}
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </>
+                </div>
+                <div className="w-full block">
+                  {link.sublinks && (
+                    <div
+                      className={` text-primary text-[15px] font-[100] gap-[8px]  rounded-[2px] flex flex-col px-[40px] ${
+                        navClick ? "block" : "hidden"
+                      } transition-all ease-in-out translate-y-1 duration-700`}
+                    >
+                      {link.sublinks.map((item) => {
+                        return (
+                          <Link
+                            key={item.text}
+                            to={item.path}
+                            onClick={object?.toggleMobileNav}
+                            className="hover:underline "
+                          >
+                            {item.text}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
               </div>
             );
