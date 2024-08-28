@@ -5,6 +5,7 @@ export type ButtonProps = {
   width: string;
   radius: string;
   border: string;
+  image? : boolean
 };
 
 export type ImageCardProps = {

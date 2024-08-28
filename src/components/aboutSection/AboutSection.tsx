@@ -3,6 +3,8 @@ import img from "../../assets/images/alert.svg";
 import img2 from "../../assets/images/img7.svg";
 import img3 from "../../assets/images/location.svg";
 import img4 from "../../assets/images/contact.svg";
+
+
 import Button from "../button/Button";
 import { usePetDetailContext } from "../../pages/petDetail/PetDetail";
 
@@ -57,7 +59,7 @@ const AboutSection = () => {
 
         <section className="w-full lg:hidden flex flex-col gap-4 ">
           <div>
-          <div className="bg-white h-[184px] border-t border-b border-gray-300 w-full py-[26px] px-[15px] text-center flex flex-col justify-between">
+          <div className="relative bg-white h-[184px] border-t border-b border-gray-300 w-full py-[26px] px-[15px] text-center flex flex-col justify-between">
             <p className="text-black text-[30px] leading-[36px]">
               {obj?.pet?.name}
             </p>
@@ -80,6 +82,12 @@ const AboutSection = () => {
               <p className="text-black text-[14px]">•</p>
               <p className="text-black text-[16px]">{obj?.pet?.size}</p>
             </div>
+
+            {/* <div className="absolute flex gap-[10px] bottom-0 right-[15px]">
+              <img src={heartIcon} alt=""  className="w-[45px] h-[45px] p-0 "/>
+              <img src={shareIcon} alt="" className="w-[45px] h-[45px] p-0"/>
+
+            </div> */}
           </div>
 
           <div className="bg-white flex">
@@ -146,6 +154,7 @@ const AboutSection = () => {
 
             <div className="w-full min-h-[56px] flex justify-between border-t border-black rounded-[10px]">
               <div className="w-[50%] rounded-l-[10px] overflow-hidden border-r border-black">
+               
                 <Button
                   text={"SPONSOR"}
                   textColor={"white"}
@@ -153,6 +162,7 @@ const AboutSection = () => {
                   border="primary"
                   width="full"
                   radius="0px"
+                  
                 />
               </div>
               <div className="w-[50%] rounded-r-[10px] overflow-hidden">
@@ -163,6 +173,7 @@ const AboutSection = () => {
                   border="primary"
                   width="full"
                   radius="0px"
+                  image = {true}
                 />
               </div>
             </div>
@@ -226,9 +237,7 @@ const AboutSection = () => {
           </div>
 
           {/* <div className="relative bg-white xs:w-full lg:w-[393px] h-[401px] shadow-lg  lg:rounded-[10px] my-[96px]  px-[20px] ">
-          
-
-
+        
             <div className="absolute left-0 right-0 mx-auto -top-14 h-[115px] w-[115px] bg-primary rounded-full content-center border-[7px] border-white">
               <img src={img2} alt="" className="mx-auto" />
             </div>

@@ -15,10 +15,10 @@ const ArticleCard = ({
       <img
         src={img}
         alt=""
-        className="w-full h-[260px] rounded-[8px] object-cover object-center"
+        className={`w-full ${size==="large" ? "h-[260px]" : "md:h-[281px] xs:h-[265px]" }  rounded-[8px] object-cover object-center`}
       />
 
-      <div className="h-[18px] bg-white rounded-t-[157px] top-[231px] w-full absolute" />
+      <div className={`h-[18px] bg-white rounded-t-[157px] ${size==="large" ? " top-[231px] " : "md:top-[252px] xs:top-[236px]" } w-full absolute`} />
 
       <div
         className={`relative ${

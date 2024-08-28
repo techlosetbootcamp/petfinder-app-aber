@@ -1,5 +1,6 @@
 import React from "react";
 import { ButtonProps } from "../../types/types";
+import whiteHeart from "../../assets/images/whiteHeart.svg"
 import {
   ButtonRadiusConstraints,
   ButtonWidthConstraints,
@@ -12,13 +13,21 @@ const Button = ({
   width,
   radius,
   border,
+  image,
 }: ButtonProps) => {
   return (
-    <input
-      type="button"
-      value={text}
-      className={`self-center ${ButtonWidthConstraints[width]} ${ButtonRadiusConstraints[radius]}  h-[45px] bg-${bgColor} text-[14px] leading-[19.6px] border-2 border-${border} text-${textColor} `}
-    />
+    <div className={`h-[45px] flex items-center gap-[15px] justify-center border-2 border-${border} text-${textColor} ${ButtonWidthConstraints[width]} ${ButtonRadiusConstraints[radius]}  bg-${bgColor}`}>
+      {
+        image &&
+       <img src={whiteHeart} alt="" className="w-[26px] h-[22px]" />
+      }
+
+      <input
+        type="button"
+        value={text}
+        className={`self-center  text-[14px] leading-[19.6px]  `}
+      />
+    </div>
   );
 };
 
